@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "tom",
+      "email": "tom@example.com",
+      "password": "123",
+      "token": "token-123",
+      "role": "end-user"
+    },
+    {
+      "id": 2,
+      "name": "mark",
+      "email": "mark@example.com",
+      "password": "123",
+      "token": "token-123",
+      "role": "approver"
+    },
+    {
+      "id": 3,
+      "name": "john",
+      "email": "john@example.com",
+      "password": "password123",
+      "token": "token-123",
+      "role": "finance"
+    }
+  ]
+}
