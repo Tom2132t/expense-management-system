@@ -15,6 +15,12 @@ export const routes: Routes = [
     canActivate: [canActivate],
     children: [
       {
+        path: 'trip',
+        loadChildren: () =>
+          import('../app/features/trip/trip.routes').then((m) => m.ROUTES),
+        data: { roles: [Role.FINANCE, Role.APPROVER] }
+      },
+      {
         path: 'dashboard',
         loadChildren: () =>
           import('../app/features/dashboard/dashboard.routes').then(

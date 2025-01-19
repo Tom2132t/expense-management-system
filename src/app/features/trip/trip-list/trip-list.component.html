@@ -1,0 +1,122 @@
+<div class="flex-grow flex flex-col">
+  <div class="overflow-x-auto">
+    <div class="overflow-auto">
+      <div class="overflow-hidden shadow">
+        <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
+          <thead class="bg-gray-100 dark:bg-gray-700">
+            <tr>
+              <th scope="col" class="p-4">
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <label for="checkbox-all" class="sr-only">checkbox</label>
+                </div>
+              </th>
+              <th
+                scope="col"
+                class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400"
+              >
+                Trip Name
+              </th>
+              <th
+                scope="col"
+                class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400"
+              >
+                Duration
+              </th>
+              <th
+                scope="col"
+                class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400"
+              >
+                Start Date
+              </th>
+              <th
+                scope="col"
+                class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400"
+              >
+                Status
+              </th>
+              <th
+                scope="col"
+                class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400"
+              >
+                Total Expense
+              </th>
+              <th
+                scope="col"
+                class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400"
+              >
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700"
+          >
+            <tr
+              *ngFor="let trip of trips$ | async"
+              class="hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <td class="w-4 p-4">
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <label class="sr-only">checkbox</label>
+                </div>
+              </td>
+              <td
+                class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400"
+              >
+                <div
+                  class="text-base font-semibold text-gray-900 dark:text-white"
+                >
+                  {{ trip.name }}
+                </div>
+              </td>
+              <td
+                class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                {{ trip.duration }}
+              </td>
+              <td
+                class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400"
+              >
+                {{ trip.startDate | date }}
+              </td>
+              <td
+                class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                {{ trip.status }}
+              </td>
+              <td
+                class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              >
+                {{ trip.name }}
+              </td>
+              <td class="p-4 space-x-2 whitespace-nowrap">
+                <button
+                  type="button"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  (click)="onUpdate(trip)"
+                >
+                  Update
+                </button>
+                <button
+                  type="button"
+                  class="inline-flex items-center px-3 py-2 text-sm font-medium text-center bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
+                  (click)="onDelete(trip.id)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
