@@ -24,5 +24,94 @@
       "token": "token-123",
       "role": "finance"
     }
+  ],
+  "trips": [
+    {
+      "id": "1",
+      "name": "Business Conference NYC",
+      "duration": "3 days",
+      "startDate": "2025-01-25",
+      "endDate": "2025-01-27",
+      "status": "Pending Approval",
+      "totalExpense": 1250.5,
+      "expenses": {
+        "carRentals": [
+          {
+            "carName": "Toyota Camry",
+            "pickUpDate": "2025-01-25T10:00:00",
+            "dropOffDate": "2025-01-27T15:00:00",
+            "pickUpLocation": "JFK Airport",
+            "dropOffLocation": "JFK Airport",
+            "totalPrice": 150
+          }
+        ],
+        "hotels": [
+          {
+            "hotelName": "Hilton Times Square",
+            "location": "New York, NY",
+            "checkInDate": "2025-01-25",
+            "checkOutDate": "2025-01-27",
+            "totalPrice": 700
+          }
+        ],
+        "flights": [
+          {
+            "airline": "Delta Airlines",
+            "from": "LAX",
+            "to": "JFK",
+            "departureDate": "2025-01-25T07:00:00",
+            "arrivalDate": "2025-01-25T15:00:00",
+            "totalPrice": 350
+          }
+        ],
+        "taxis": [
+          {
+            "from": "JFK Airport",
+            "to": "Hilton Times Square",
+            "timeAndDate": "2025-01-25T16:00:00",
+            "totalPrice": 50
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "name": "Vacation in Paris",
+      "duration": "7 days",
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-07",
+      "status": "Approved",
+      "totalExpense": 3000.0,
+      "expenses": {
+        "carRentals": [],
+        "hotels": [
+          {
+            "hotelName": "Le Meurice",
+            "location": "Paris, France",
+            "checkInDate": "2025-03-01",
+            "checkOutDate": "2025-03-07",
+            "totalPrice": 1800
+          }
+        ],
+        "flights": [
+          {
+            "airline": "Air France",
+            "from": "JFK",
+            "to": "CDG",
+            "departureDate": "2025-03-01T18:00:00",
+            "arrivalDate": "2025-03-02T06:00:00",
+            "totalPrice": 1000
+          }
+        ],
+        "taxis": [
+          {
+            "from": "CDG Airport",
+            "to": "Le Meurice",
+            "timeAndDate": "2025-03-02T07:00:00",
+            "totalPrice": 100
+          }
+        ]
+      }
+    }
   ]
 }
