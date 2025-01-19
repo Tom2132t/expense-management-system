@@ -20,7 +20,7 @@
       "id": 3,
       "name": "john",
       "email": "john@example.com",
-      "password": "password123",
+      "password": "123",
       "token": "token-123",
       "role": "finance"
     }
