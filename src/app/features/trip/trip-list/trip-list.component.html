@@ -1,19 +1,20 @@
-<div class="flex-grow flex flex-col">
+<div
+  class="flex-grow flex flex-col table-container"
+  infinite-scroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollUpDistance]="1"
+  [infiniteScrollThrottle]="150"
+  (scrolled)="onScroll()"
+>
   <div class="overflow-x-auto">
     <div class="overflow-auto">
       <div class="overflow-hidden shadow">
-        <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
+        <table
+          class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600"
+        >
           <thead class="bg-gray-100 dark:bg-gray-700">
             <tr>
-              <th scope="col" class="p-4">
-                <div class="flex items-center">
-                  <input
-                    type="checkbox"
-                    class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label for="checkbox-all" class="sr-only">checkbox</label>
-                </div>
-              </th>
+              <th scope="col" class="p-4"></th>
               <th
                 scope="col"
                 class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400"
@@ -56,18 +57,10 @@
             class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700"
           >
             <tr
-              *ngFor="let trip of trips$ | async"
+              *ngFor="let trip of visibleTrips"
               class="hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-              <td class="w-4 p-4">
-                <div class="flex items-center">
-                  <input
-                    type="checkbox"
-                    class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                  <label class="sr-only">checkbox</label>
-                </div>
-              </td>
+              <td class="w-4 p-4"></td>
               <td
                 class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400"
               >
@@ -95,7 +88,7 @@
               <td
                 class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                {{ trip.name }}
+                {{ trip.status }}
               </td>
               <td class="p-4 space-x-2 whitespace-nowrap">
                 <button

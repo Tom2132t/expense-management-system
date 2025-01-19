@@ -112,6 +112,201 @@
           }
         ]
       }
+    },
+    {
+      "id": "3",
+      "name": "Vacation in Paris",
+      "duration": "7 days",
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-07",
+      "status": "Approved",
+      "totalExpense": 3000.0,
+      "expenses": {
+        "carRentals": [],
+        "hotels": [
+          {
+            "hotelName": "Le Meurice",
+            "location": "Paris, France",
+            "checkInDate": "2025-03-01",
+            "checkOutDate": "2025-03-07",
+            "totalPrice": 1800
+          }
+        ],
+        "flights": [
+          {
+            "airline": "Air France",
+            "from": "JFK",
+            "to": "CDG",
+            "departureDate": "2025-03-01T18:00:00",
+            "arrivalDate": "2025-03-02T06:00:00",
+            "totalPrice": 1000
+          }
+        ],
+        "taxis": [
+          {
+            "from": "CDG Airport",
+            "to": "Le Meurice",
+            "timeAndDate": "2025-03-02T07:00:00",
+            "totalPrice": 100
+          }
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "name": "Vacation in Paris",
+      "duration": "7 days",
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-07",
+      "status": "Approved",
+      "totalExpense": 3000.0,
+      "expenses": {
+        "carRentals": [],
+        "hotels": [
+          {
+            "hotelName": "Le Meurice",
+            "location": "Paris, France",
+            "checkInDate": "2025-03-01",
+            "checkOutDate": "2025-03-07",
+            "totalPrice": 1800
+          }
+        ],
+        "flights": [
+          {
+            "airline": "Air France",
+            "from": "JFK",
+            "to": "CDG",
+            "departureDate": "2025-03-01T18:00:00",
+            "arrivalDate": "2025-03-02T06:00:00",
+            "totalPrice": 1000
+          }
+        ],
+        "taxis": [
+          {
+            "from": "CDG Airport",
+            "to": "Le Meurice",
+            "timeAndDate": "2025-03-02T07:00:00",
+            "totalPrice": 100
+          }
+        ]
+      }
+    },
+    {
+      "id": "5",
+      "name": "Vacation in Paris",
+      "duration": "7 days",
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-07",
+      "status": "Approved",
+      "totalExpense": 3000.0,
+      "expenses": {
+        "carRentals": [],
+        "hotels": [
+          {
+            "hotelName": "Le Meurice",
+            "location": "Paris, France",
+            "checkInDate": "2025-03-01",
+            "checkOutDate": "2025-03-07",
+            "totalPrice": 1800
+          }
+        ],
+        "flights": [
+          {
+            "airline": "Air France",
+            "from": "JFK",
+            "to": "CDG",
+            "departureDate": "2025-03-01T18:00:00",
+            "arrivalDate": "2025-03-02T06:00:00",
+            "totalPrice": 1000
+          }
+        ],
+        "taxis": [
+          {
+            "from": "CDG Airport",
+            "to": "Le Meurice",
+            "timeAndDate": "2025-03-02T07:00:00",
+            "totalPrice": 100
+          }
+        ]
+      }
+    },
+    {
+      "id": "6",
+      "name": "Vacation in Paris",
+      "duration": "7 days",
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-07",
+      "status": "Approved",
+      "totalExpense": 3000.0,
+      "expenses": {
+        "carRentals": [],
+        "hotels": [
+          {
+            "hotelName": "Le Meurice",
+            "location": "Paris, France",
+            "checkInDate": "2025-03-01",
+            "checkOutDate": "2025-03-07",
+            "totalPrice": 1800
+          }
+        ],
+        "flights": [
+          {
+            "airline": "Air France",
+            "from": "JFK",
+            "to": "CDG",
+            "departureDate": "2025-03-01T18:00:00",
+            "arrivalDate": "2025-03-02T06:00:00",
+            "totalPrice": 1000
+          }
+        ],
+        "taxis": [
+          {
+            "from": "CDG Airport",
+            "to": "Le Meurice",
+            "timeAndDate": "2025-03-02T07:00:00",
+            "totalPrice": 100
+          }
+        ]
+      }
+    },
+    {
+      "id": "7",
+      "name": "Vacation in Paris",
+      "duration": "7 days",
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-07",
+      "status": "Approved",
+      "totalExpense": 3000.0,
+      "expenses": {
+        "carRentals": [],
+        "hotels": [
+          {
+            "hotelName": "Le Meurice",
+            "location": "Paris, France",
+            "checkInDate": "2025-03-01",
+            "checkOutDate": "2025-03-07",
+            "totalPrice": 1800
+          }
+        ],
+        "flights": [
+          {
+            "airline": "Air France",
+            "from": "JFK",
+            "to": "CDG",
+            "departureDate": "2025-03-01T18:00:00",
+            "arrivalDate": "2025-03-02T06:00:00",
+            "totalPrice": 1000
+          }
+        ],
+        "taxis": [
+          {
+            "from": "CDG Airport",
+            "to": "Le Meurice",
+            "timeAndDate": "2025-03-02T07:00:00",
+            "totalPrice": 100
+          }
+        ]
+      }
     }
   ]
 }
