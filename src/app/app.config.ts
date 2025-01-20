@@ -8,6 +8,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { appEffects } from './store/app.effects';
 import { reducers } from './store/app.state';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideStore(reducers),
     provideEffects(appEffects),
-    provideStoreDevtools({ maxAge: 25, logOnly: false })
+    provideStoreDevtools({ maxAge: 25, logOnly: false }),
+    provideAnimationsAsync()
   ]
 };
