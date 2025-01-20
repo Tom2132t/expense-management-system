@@ -1,1 +1,391 @@
-<p>trip-detail works!</p>
+<div class="min-h-screen p-6 flex items-center justify-center">
+  <div class="container max-w-screen-lg mx-auto">
+    <div>
+      <h2 class="font-semibold text-xl text-gray-600">Travel Expense Form</h2>
+      <p class="text-gray-500 mb-6">
+        Please fill out all the necessary details for your trip and expenses.
+      </p>
+
+      <form [formGroup]="tripForm" (ngSubmit)="onSubmit()">
+        <div class="rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+          <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+            <div class="text-gray-600">
+              <p class="font-medium text-lg">Trip Details</p>
+              <p>Please fill out the trip details and expenses below.</p>
+            </div>
+
+            <div class="lg:col-span-2">
+              <div
+                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5"
+              >
+                <!-- Trip Name -->
+                <div class="md:col-span-5">
+                  <label for="trip_name">Trip Name</label>
+                  <input
+                    formControlName="trip_name"
+                    type="text"
+                    name="trip_name"
+                    id="trip_name"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    value=""
+                  />
+                </div>
+
+                <!-- Trip Duration -->
+                <div class="md:col-span-5">
+                  <label for="trip_duration">Trip Duration (Days)</label>
+                  <input
+                    formControlName="trip_duration"
+                    type="text"
+                    name="trip_duration"
+                    id="trip_duration"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    value=""
+                  />
+                </div>
+
+                <!-- Trip Start/End Date -->
+                <div class="md:col-span-3">
+                  <label for="start_date">Start Date</label>
+                  <input
+                    formControlName="start_date"
+                    type="date"
+                    name="start_date"
+                    id="start_date"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    value=""
+                  />
+                </div>
+
+                <div class="md:col-span-2">
+                  <label for="end_date">End Date</label>
+                  <input
+                    formControlName="end_date"
+                    type="date"
+                    name="end_date"
+                    id="end_date"
+                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                    value=""
+                  />
+                </div>
+
+                <!-- Car Rental Section -->
+                <div
+                  class="lg:col-span-5 p-4 rounded shadow-md"
+                  formGroupName="car_rental"
+                >
+                  <div class="md:col-span-5">
+                    <p class="font-medium text-lg text-gray-600">Car Rental</p>
+                  </div>
+
+                  <div class="md:col-span-3">
+                    <label for="car_name">Car Name</label>
+                    <input
+                      formControlName="car_name"
+                      type="text"
+                      name="car_name"
+                      id="car_name"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="pick_up_time">Pick-up Time</label>
+                    <input
+                      formControlName="pick_up_time"
+                      type="datetime-local"
+                      name="pick_up_time"
+                      id="pick_up_time"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="drop_off_time">Drop-off Time</label>
+                    <input
+                      formControlName="drop_off_time"
+                      type="datetime-local"
+                      name="drop_off_time"
+                      id="drop_off_time"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-3">
+                    <label for="pick_up_location">Pick-up Location</label>
+                    <input
+                      formControlName="pick_up_location"
+                      type="text"
+                      name="pick_up_location"
+                      id="pick_up_location"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="drop_off_location">Drop-off Location</label>
+                    <input
+                      formControlName="drop_off_location"
+                      type="text"
+                      name="drop_off_location"
+                      id="drop_off_location"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="car_rental_price">Total Price</label>
+                    <input
+                      formControlName="car_rental_price"
+                      type="number"
+                      name="car_rental_price"
+                      id="car_rental_price"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+                </div>
+
+                <!-- Hotel Section -->
+                <div
+                  class="lg:col-span-5 p-4 rounded shadow-md"
+                  formGroupName="hotel"
+                >
+                  <div class="md:col-span-5">
+                    <p class="font-medium text-lg text-gray-600">Hotel</p>
+                  </div>
+
+                  <div class="md:col-span-5">
+                    <label for="hotel_name">Hotel Name</label>
+                    <input
+                      formControlName="hotel_name"
+                      type="text"
+                      name="hotel_name"
+                      id="hotel_name"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-5">
+                    <label for="hotel_location">Hotel Location</label>
+                    <input
+                      formControlName="hotel_location"
+                      type="text"
+                      name="hotel_location"
+                      id="hotel_location"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="check_in_date">Check-in Date</label>
+                    <input
+                      formControlName="check_in_date"
+                      type="date"
+                      name="check_in_date"
+                      id="check_in_date"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="check_out_date">Check-out Date</label>
+                    <input
+                      formControlName="check_out_date"
+                      type="date"
+                      name="check_out_date"
+                      id="check_out_date"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="hotel_price">Total Price</label>
+                    <input
+                      formControlName="hotel_price"
+                      type="number"
+                      name="hotel_price"
+                      id="hotel_price"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+                </div>
+
+                <!-- Flight Section -->
+                <div
+                  class="lg:col-span-5 p-4 rounded shadow-md"
+                  formGroupName="flight"
+                >
+                  <div class="md:col-span-5">
+                    <p class="font-medium text-lg text-gray-600">Flight</p>
+                  </div>
+
+                  <div class="md:col-span-5">
+                    <label for="airline">Airline</label>
+                    <input
+                      formControlName="airline"
+                      type="text"
+                      name="airline"
+                      id="airline"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="departure_location">From</label>
+                    <input
+                      formControlName="departure_location"
+                      type="text"
+                      name="departure_location"
+                      id="departure_location"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="arrival_location">To</label>
+                    <input
+                      formControlName="arrival_location"
+                      type="text"
+                      name="arrival_location"
+                      id="arrival_location"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="departure_time">Departure Time</label>
+                    <input
+                      formControlName="departure_time"
+                      type="datetime-local"
+                      name="departure_time"
+                      id="departure_time"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="arrival_time">Arrival Time</label>
+                    <input
+                      formControlName="arrival_time"
+                      type="datetime-local"
+                      name="arrival_time"
+                      id="arrival_time"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="flight_price">Total Price</label>
+                    <input
+                      formControlName="flight_price"
+                      type="number"
+                      name="flight_price"
+                      id="flight_price"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+                </div>
+
+                <!-- Taxi Section -->
+                <div
+                  class="lg:col-span-5 p-4 rounded shadow-md"
+                  formGroupName="taxi"
+                >
+                  <div class="md:col-span-5">
+                    <p class="font-medium text-lg text-gray-600">Taxi</p>
+                  </div>
+
+                  <div class="md:col-span-5">
+                    <label for="taxi_name">Taxi Service</label>
+                    <input
+                      formControlName="taxi_name"
+                      type="text"
+                      name="taxi_name"
+                      id="taxi_name"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-5">
+                    <label for="taxi_service">Service</label>
+                    <input
+                      formControlName="taxi_service"
+                      type="text"
+                      name="taxi_service"
+                      id="taxi_service"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="taxi_pick_up_time">Pick-up Time</label>
+                    <input
+                      formControlName="taxi_pick_up_time"
+                      type="datetime-local"
+                      name="taxi_pick_up_time"
+                      id="taxi_pick_up_time"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="taxi_drop_off_time">Drop-off Time</label>
+                    <input
+                      formControlName="taxi_drop_off_time"
+                      type="datetime-local"
+                      name="taxi_drop_off_time"
+                      id="taxi_drop_off_time"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+
+                  <div class="md:col-span-2">
+                    <label for="taxi_price">Total Price</label>
+                    <input
+                      formControlName="taxi_price"
+                      type="number"
+                      name="taxi_price"
+                      id="taxi_price"
+                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                      value=""
+                    />
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="md:col-span-5 text-right">
+                  <button
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
