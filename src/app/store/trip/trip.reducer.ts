@@ -48,7 +48,7 @@ export const tripReducer = createReducer(
   })),
   on(TripActions.loadTripByIdSuccess, (state, { trip }) => ({
     ...state,
-    trips: [...state.trips.filter((t) => t.id !== trip.id), trip], // Update or add trip
+    trips: [...state.trips.filter((t) => t.id !== trip.id), trip],
   })),
   on(TripActions.loadTripByIdFailure, (state, { error }) => ({
     ...state,

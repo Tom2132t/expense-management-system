@@ -32,10 +32,10 @@
       "duration": "3 days",
       "startDate": "2025-01-25",
       "endDate": "2025-01-27",
-      "status": "Pending Approval",
+      "status": "draft",
       "totalExpense": 1250.5,
       "expenses": {
-        "carRentals": [
+        "carRental": [
           {
             "carName": "Toyota Camry",
             "pickUpDate": "2025-01-25T10:00:00",
@@ -45,7 +45,7 @@
             "totalPrice": 150
           }
         ],
-        "hotels": [
+        "hotel": [
           {
             "hotelName": "Hilton Times Square",
             "location": "New York, NY",
@@ -54,7 +54,7 @@
             "totalPrice": 700
           }
         ],
-        "flights": [
+        "flight": [
           {
             "airline": "Delta Airlines",
             "from": "LAX",
@@ -64,7 +64,7 @@
             "totalPrice": 350
           }
         ],
-        "taxis": [
+        "taxi": [
           {
             "from": "JFK Airport",
             "to": "Hilton Times Square",
@@ -83,8 +83,8 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRentals": [],
-        "hotels": [
+        "carRental": [],
+        "hotel": [
           {
             "hotelName": "Le Meurice",
             "location": "Paris, France",
@@ -93,7 +93,7 @@
             "totalPrice": 1800
           }
         ],
-        "flights": [
+        "flight": [
           {
             "airline": "Air France",
             "from": "JFK",
@@ -103,7 +103,7 @@
             "totalPrice": 1000
           }
         ],
-        "taxis": [
+        "taxi": [
           {
             "from": "CDG Airport",
             "to": "Le Meurice",
@@ -122,8 +122,8 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRentals": [],
-        "hotels": [
+        "carRental": [],
+        "hotel": [
           {
             "hotelName": "Le Meurice",
             "location": "Paris, France",
@@ -132,7 +132,7 @@
             "totalPrice": 1800
           }
         ],
-        "flights": [
+        "flight": [
           {
             "airline": "Air France",
             "from": "JFK",
@@ -142,7 +142,7 @@
             "totalPrice": 1000
           }
         ],
-        "taxis": [
+        "taxi": [
           {
             "from": "CDG Airport",
             "to": "Le Meurice",
@@ -161,8 +161,8 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRentals": [],
-        "hotels": [
+        "carRental": [],
+        "hotel": [
           {
             "hotelName": "Le Meurice",
             "location": "Paris, France",
@@ -171,7 +171,7 @@
             "totalPrice": 1800
           }
         ],
-        "flights": [
+        "flight": [
           {
             "airline": "Air France",
             "from": "JFK",
@@ -181,7 +181,7 @@
             "totalPrice": 1000
           }
         ],
-        "taxis": [
+        "taxi": [
           {
             "from": "CDG Airport",
             "to": "Le Meurice",
@@ -200,8 +200,8 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRentals": [],
-        "hotels": [
+        "carRental": [],
+        "hotel": [
           {
             "hotelName": "Le Meurice",
             "location": "Paris, France",
@@ -210,7 +210,7 @@
             "totalPrice": 1800
           }
         ],
-        "flights": [
+        "flight": [
           {
             "airline": "Air France",
             "from": "JFK",
@@ -220,7 +220,7 @@
             "totalPrice": 1000
           }
         ],
-        "taxis": [
+        "taxi": [
           {
             "from": "CDG Airport",
             "to": "Le Meurice",
@@ -239,8 +239,8 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRentals": [],
-        "hotels": [
+        "carRental": [],
+        "hotel": [
           {
             "hotelName": "Le Meurice",
             "location": "Paris, France",
@@ -249,7 +249,7 @@
             "totalPrice": 1800
           }
         ],
-        "flights": [
+        "flight": [
           {
             "airline": "Air France",
             "from": "JFK",
@@ -259,7 +259,7 @@
             "totalPrice": 1000
           }
         ],
-        "taxis": [
+        "taxi": [
           {
             "from": "CDG Airport",
             "to": "Le Meurice",
@@ -278,8 +278,8 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRentals": [],
-        "hotels": [
+        "carRental": [],
+        "hotel": [
           {
             "hotelName": "Le Meurice",
             "location": "Paris, France",
@@ -288,7 +288,7 @@
             "totalPrice": 1800
           }
         ],
-        "flights": [
+        "flight": [
           {
             "airline": "Air France",
             "from": "JFK",
@@ -298,7 +298,7 @@
             "totalPrice": 1000
           }
         ],
-        "taxis": [
+        "taxi": [
           {
             "from": "CDG Airport",
             "to": "Le Meurice",

@@ -1,391 +1,256 @@
-<div class="min-h-screen p-6 flex items-center justify-center">
-  <div class="container max-w-screen-lg mx-auto">
-    <div>
-      <h2 class="font-semibold text-xl text-gray-600">Travel Expense Form</h2>
-      <p class="text-gray-500 mb-6">
-        Please fill out all the necessary details for your trip and expenses.
-      </p>
+<form [formGroup]="tripForm" (ngSubmit)="onSubmit()">
+  <!-- General Trip Information -->
+  <div class="section">
+    <h2>Trip Details</h2>
 
-      <form [formGroup]="tripForm" (ngSubmit)="onSubmit()">
-        <div class="rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-          <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-            <div class="text-gray-600">
-              <p class="font-medium text-lg">Trip Details</p>
-              <p>Please fill out the trip details and expenses below.</p>
-            </div>
+    <mat-form-field class="full-width">
+      <mat-label>Trip Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
 
-            <div class="lg:col-span-2">
-              <div
-                class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5"
-              >
-                <!-- Trip Name -->
-                <div class="md:col-span-5">
-                  <label for="trip_name">Trip Name</label>
-                  <input
-                    formControlName="trip_name"
-                    type="text"
-                    name="trip_name"
-                    id="trip_name"
-                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                    value=""
-                  />
-                </div>
+    <mat-form-field class="full-width">
+      <mat-label>Duration</mat-label>
+      <input matInput formControlName="duration" />
+    </mat-form-field>
 
-                <!-- Trip Duration -->
-                <div class="md:col-span-5">
-                  <label for="trip_duration">Trip Duration (Days)</label>
-                  <input
-                    formControlName="trip_duration"
-                    type="text"
-                    name="trip_duration"
-                    id="trip_duration"
-                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                    value=""
-                  />
-                </div>
+    <mat-form-field class="full-width">
+      <mat-label>Start Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="startDatePicker"
+        formControlName="startDate"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="startDatePicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
 
-                <!-- Trip Start/End Date -->
-                <div class="md:col-span-3">
-                  <label for="start_date">Start Date</label>
-                  <input
-                    formControlName="start_date"
-                    type="date"
-                    name="start_date"
-                    id="start_date"
-                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                    value=""
-                  />
-                </div>
+    <mat-form-field class="full-width">
+      <mat-label>End Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="endDatePicker"
+        formControlName="endDate"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="endDatePicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
 
-                <div class="md:col-span-2">
-                  <label for="end_date">End Date</label>
-                  <input
-                    formControlName="end_date"
-                    type="date"
-                    name="end_date"
-                    id="end_date"
-                    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                    value=""
-                  />
-                </div>
+    <mat-form-field class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="draft">Draft</mat-option>
+        <mat-option value="pending-approval">Pending Approval</mat-option>
+        <mat-option value="approved">Approved</mat-option>
+        <mat-option value="canceled">Canceled</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-                <!-- Car Rental Section -->
-                <div
-                  class="lg:col-span-5 p-4 rounded shadow-md"
-                  formGroupName="car_rental"
-                >
-                  <div class="md:col-span-5">
-                    <p class="font-medium text-lg text-gray-600">Car Rental</p>
-                  </div>
+    <mat-form-field class="full-width">
+      <mat-label>Total Expense</mat-label>
+      <input matInput type="number" formControlName="totalExpense" />
+    </mat-form-field>
+  </div>
 
-                  <div class="md:col-span-3">
-                    <label for="car_name">Car Name</label>
-                    <input
-                      formControlName="car_name"
-                      type="text"
-                      name="car_name"
-                      id="car_name"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+  <div formGroupName="expenses">
+    <!-- Car Rental Section -->
+    <div class="section">
+      <h2>Car Rental</h2>
+      <div formGroupName="carRental">
+        <mat-form-field class="full-width">
+          <mat-label>Car Name</mat-label>
+          <input matInput formControlName="carName" />
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="pick_up_time">Pick-up Time</label>
-                    <input
-                      formControlName="pick_up_time"
-                      type="datetime-local"
-                      name="pick_up_time"
-                      id="pick_up_time"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Pick-Up Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickUpPicker"
+            formControlName="pickUpDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickUpPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #pickUpPicker></mat-datepicker>
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="drop_off_time">Drop-off Time</label>
-                    <input
-                      formControlName="drop_off_time"
-                      type="datetime-local"
-                      name="drop_off_time"
-                      id="drop_off_time"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Drop-Off Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="dropOffPicker"
+            formControlName="dropOffDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="dropOffPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #dropOffPicker></mat-datepicker>
+        </mat-form-field>
 
-                  <div class="md:col-span-3">
-                    <label for="pick_up_location">Pick-up Location</label>
-                    <input
-                      formControlName="pick_up_location"
-                      type="text"
-                      name="pick_up_location"
-                      id="pick_up_location"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Pick-Up Location</mat-label>
+          <input matInput formControlName="pickUpLocation" />
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="drop_off_location">Drop-off Location</label>
-                    <input
-                      formControlName="drop_off_location"
-                      type="text"
-                      name="drop_off_location"
-                      id="drop_off_location"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Drop-Off Location</mat-label>
+          <input matInput formControlName="dropOffLocation" />
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="car_rental_price">Total Price</label>
-                    <input
-                      formControlName="car_rental_price"
-                      type="number"
-                      name="car_rental_price"
-                      id="car_rental_price"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
-                </div>
+        <mat-form-field class="full-width">
+          <mat-label>Total Price</mat-label>
+          <input matInput type="number" formControlName="totalPrice" />
+        </mat-form-field>
+      </div>
+    </div>
 
-                <!-- Hotel Section -->
-                <div
-                  class="lg:col-span-5 p-4 rounded shadow-md"
-                  formGroupName="hotel"
-                >
-                  <div class="md:col-span-5">
-                    <p class="font-medium text-lg text-gray-600">Hotel</p>
-                  </div>
+    <!-- Hotel Section -->
+    <div class="section">
+      <h2>Hotel</h2>
+      <div formGroupName="hotel">
+        <mat-form-field class="full-width">
+          <mat-label>Hotel Name</mat-label>
+          <input matInput formControlName="hotelName" />
+        </mat-form-field>
 
-                  <div class="md:col-span-5">
-                    <label for="hotel_name">Hotel Name</label>
-                    <input
-                      formControlName="hotel_name"
-                      type="text"
-                      name="hotel_name"
-                      id="hotel_name"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Location</mat-label>
+          <input matInput formControlName="location" />
+        </mat-form-field>
 
-                  <div class="md:col-span-5">
-                    <label for="hotel_location">Hotel Location</label>
-                    <input
-                      formControlName="hotel_location"
-                      type="text"
-                      name="hotel_location"
-                      id="hotel_location"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Check-In Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="checkInPicker"
+            formControlName="checkInDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="checkInPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #checkInPicker></mat-datepicker>
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="check_in_date">Check-in Date</label>
-                    <input
-                      formControlName="check_in_date"
-                      type="date"
-                      name="check_in_date"
-                      id="check_in_date"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Check-Out Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="checkOutPicker"
+            formControlName="checkOutDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="checkOutPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #checkOutPicker></mat-datepicker>
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="check_out_date">Check-out Date</label>
-                    <input
-                      formControlName="check_out_date"
-                      type="date"
-                      name="check_out_date"
-                      id="check_out_date"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Total Price</mat-label>
+          <input matInput type="number" formControlName="totalPrice" />
+        </mat-form-field>
+      </div>
+    </div>
 
-                  <div class="md:col-span-2">
-                    <label for="hotel_price">Total Price</label>
-                    <input
-                      formControlName="hotel_price"
-                      type="number"
-                      name="hotel_price"
-                      id="hotel_price"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
-                </div>
+    <!-- Flight Section -->
+    <div class="section">
+      <h2>Flight</h2>
+      <div formGroupName="flight">
+        <mat-form-field class="full-width">
+          <mat-label>Airline</mat-label>
+          <input matInput formControlName="airline" />
+        </mat-form-field>
 
-                <!-- Flight Section -->
-                <div
-                  class="lg:col-span-5 p-4 rounded shadow-md"
-                  formGroupName="flight"
-                >
-                  <div class="md:col-span-5">
-                    <p class="font-medium text-lg text-gray-600">Flight</p>
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>From</mat-label>
+          <input matInput formControlName="from" />
+        </mat-form-field>
 
-                  <div class="md:col-span-5">
-                    <label for="airline">Airline</label>
-                    <input
-                      formControlName="airline"
-                      type="text"
-                      name="airline"
-                      id="airline"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>To</mat-label>
+          <input matInput formControlName="to" />
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="departure_location">From</label>
-                    <input
-                      formControlName="departure_location"
-                      type="text"
-                      name="departure_location"
-                      id="departure_location"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Departure Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="departurePicker"
+            formControlName="departureDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="departurePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #departurePicker></mat-datepicker>
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="arrival_location">To</label>
-                    <input
-                      formControlName="arrival_location"
-                      type="text"
-                      name="arrival_location"
-                      id="arrival_location"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Arrival Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="arrivalPicker"
+            formControlName="arrivalDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="arrivalPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #arrivalPicker></mat-datepicker>
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="departure_time">Departure Time</label>
-                    <input
-                      formControlName="departure_time"
-                      type="datetime-local"
-                      name="departure_time"
-                      id="departure_time"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Total Price</mat-label>
+          <input matInput type="number" formControlName="totalPrice" />
+        </mat-form-field>
+      </div>
+    </div>
 
-                  <div class="md:col-span-2">
-                    <label for="arrival_time">Arrival Time</label>
-                    <input
-                      formControlName="arrival_time"
-                      type="datetime-local"
-                      name="arrival_time"
-                      id="arrival_time"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
+    <!-- Taxi Section -->
+    <div class="section">
+      <h2>Taxi</h2>
+      <div formGroupName="taxi">
+        <mat-form-field class="full-width">
+          <mat-label>From</mat-label>
+          <input matInput formControlName="from" />
+        </mat-form-field>
 
-                  <div class="md:col-span-2">
-                    <label for="flight_price">Total Price</label>
-                    <input
-                      formControlName="flight_price"
-                      type="number"
-                      name="flight_price"
-                      id="flight_price"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
-                </div>
+        <mat-form-field class="full-width">
+          <mat-label>To</mat-label>
+          <input matInput formControlName="to" />
+        </mat-form-field>
 
-                <!-- Taxi Section -->
-                <div
-                  class="lg:col-span-5 p-4 rounded shadow-md"
-                  formGroupName="taxi"
-                >
-                  <div class="md:col-span-5">
-                    <p class="font-medium text-lg text-gray-600">Taxi</p>
-                  </div>
+        <mat-form-field class="full-width">
+          <mat-label>Time and Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="taxiPicker"
+            formControlName="timeAndDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="taxiPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #taxiPicker></mat-datepicker>
+        </mat-form-field>
 
-                  <div class="md:col-span-5">
-                    <label for="taxi_name">Taxi Service</label>
-                    <input
-                      formControlName="taxi_name"
-                      type="text"
-                      name="taxi_name"
-                      id="taxi_name"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
-
-                  <div class="md:col-span-5">
-                    <label for="taxi_service">Service</label>
-                    <input
-                      formControlName="taxi_service"
-                      type="text"
-                      name="taxi_service"
-                      id="taxi_service"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
-
-                  <div class="md:col-span-2">
-                    <label for="taxi_pick_up_time">Pick-up Time</label>
-                    <input
-                      formControlName="taxi_pick_up_time"
-                      type="datetime-local"
-                      name="taxi_pick_up_time"
-                      id="taxi_pick_up_time"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
-
-                  <div class="md:col-span-2">
-                    <label for="taxi_drop_off_time">Drop-off Time</label>
-                    <input
-                      formControlName="taxi_drop_off_time"
-                      type="datetime-local"
-                      name="taxi_drop_off_time"
-                      id="taxi_drop_off_time"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
-
-                  <div class="md:col-span-2">
-                    <label for="taxi_price">Total Price</label>
-                    <input
-                      formControlName="taxi_price"
-                      type="number"
-                      name="taxi_price"
-                      id="taxi_price"
-                      class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
-                    />
-                  </div>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="md:col-span-5 text-right">
-                  <button
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
+        <mat-form-field class="full-width">
+          <mat-label>Total Price</mat-label>
+          <input matInput type="number" formControlName="totalPrice" />
+        </mat-form-field>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- Submit Button -->
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>
