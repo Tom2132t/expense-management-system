@@ -15,8 +15,11 @@ export interface TripModel {
   createdBy: string;
   approverNotes?: string;
   financeStatus?: FinanceStatus;
-  carRentals: CarRentalExpenseModel[];
-  hotels: HotelExpenseModel[];
-  flights: FlightExpenseModel[];
-  taxis: TaxiExpenseModel[];
+  totalExpense: number;
+  expenses: {
+    carRental: CarRentalExpenseModel;
+    hotel: HotelExpenseModel;
+    flight: FlightExpenseModel;
+    taxi: TaxiExpenseModel;
+  };
 }

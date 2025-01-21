@@ -35,43 +35,35 @@
       "status": "draft",
       "totalExpense": 1250.5,
       "expenses": {
-        "carRental": [
-          {
-            "carName": "Toyota Camry",
-            "pickUpDate": "2025-01-25T10:00:00",
-            "dropOffDate": "2025-01-27T15:00:00",
-            "pickUpLocation": "JFK Airport",
-            "dropOffLocation": "JFK Airport",
-            "totalPrice": 150
-          }
-        ],
-        "hotel": [
-          {
-            "hotelName": "Hilton Times Square",
-            "location": "New York, NY",
-            "checkInDate": "2025-01-25",
-            "checkOutDate": "2025-01-27",
-            "totalPrice": 700
-          }
-        ],
-        "flight": [
-          {
-            "airline": "Delta Airlines",
-            "from": "LAX",
-            "to": "JFK",
-            "departureDate": "2025-01-25T07:00:00",
-            "arrivalDate": "2025-01-25T15:00:00",
-            "totalPrice": 350
-          }
-        ],
-        "taxi": [
-          {
-            "from": "JFK Airport",
-            "to": "Hilton Times Square",
-            "timeAndDate": "2025-01-25T16:00:00",
-            "totalPrice": 50
-          }
-        ]
+        "carRental": {
+          "carName": "Toyota Camry",
+          "pickUpDate": "2025-01-25T10:00:00",
+          "dropOffDate": "2025-01-27T15:00:00",
+          "pickUpLocation": "JFK Airport",
+          "dropOffLocation": "JFK Airport",
+          "totalPrice": 150
+        },
+        "hotel": {
+          "hotelName": "Hilton Times Square",
+          "location": "New York, NY",
+          "checkInDate": "2025-01-25",
+          "checkOutDate": "2025-01-27",
+          "totalPrice": 700
+        },
+        "flight": {
+          "airline": "Delta Airlines",
+          "from": "LAX",
+          "to": "JFK",
+          "departureDate": "2025-01-25T07:00:00",
+          "arrivalDate": "2025-01-25T15:00:00",
+          "totalPrice": 350
+        },
+        "taxi": {
+          "from": "JFK Airport",
+          "to": "Hilton Times Square",
+          "timeAndDate": "2025-01-25T16:00:00",
+          "totalPrice": 50
+        }
       }
     },
     {
@@ -83,34 +75,28 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRental": [],
-        "hotel": [
-          {
-            "hotelName": "Le Meurice",
-            "location": "Paris, France",
-            "checkInDate": "2025-03-01",
-            "checkOutDate": "2025-03-07",
-            "totalPrice": 1800
-          }
-        ],
-        "flight": [
-          {
-            "airline": "Air France",
-            "from": "JFK",
-            "to": "CDG",
-            "departureDate": "2025-03-01T18:00:00",
-            "arrivalDate": "2025-03-02T06:00:00",
-            "totalPrice": 1000
-          }
-        ],
-        "taxi": [
-          {
-            "from": "CDG Airport",
-            "to": "Le Meurice",
-            "timeAndDate": "2025-03-02T07:00:00",
-            "totalPrice": 100
-          }
-        ]
+        "carRental": {},
+        "hotel": {
+          "hotelName": "Le Meurice",
+          "location": "Paris, France",
+          "checkInDate": "2025-03-01",
+          "checkOutDate": "2025-03-07",
+          "totalPrice": 1800
+        },
+        "flight": {
+          "airline": "Air France",
+          "from": "JFK",
+          "to": "CDG",
+          "departureDate": "2025-03-01T18:00:00",
+          "arrivalDate": "2025-03-02T06:00:00",
+          "totalPrice": 1000
+        },
+        "taxi": {
+          "from": "CDG Airport",
+          "to": "Le Meurice",
+          "timeAndDate": "2025-03-02T07:00:00",
+          "totalPrice": 100
+        }
       }
     },
     {
@@ -122,34 +108,28 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRental": [],
-        "hotel": [
-          {
-            "hotelName": "Le Meurice",
-            "location": "Paris, France",
-            "checkInDate": "2025-03-01",
-            "checkOutDate": "2025-03-07",
-            "totalPrice": 1800
-          }
-        ],
-        "flight": [
-          {
-            "airline": "Air France",
-            "from": "JFK",
-            "to": "CDG",
-            "departureDate": "2025-03-01T18:00:00",
-            "arrivalDate": "2025-03-02T06:00:00",
-            "totalPrice": 1000
-          }
-        ],
-        "taxi": [
-          {
-            "from": "CDG Airport",
-            "to": "Le Meurice",
-            "timeAndDate": "2025-03-02T07:00:00",
-            "totalPrice": 100
-          }
-        ]
+        "carRental": {},
+        "hotel": {
+          "hotelName": "Le Meurice",
+          "location": "Paris, France",
+          "checkInDate": "2025-03-01",
+          "checkOutDate": "2025-03-07",
+          "totalPrice": 1800
+        },
+        "flight": {
+          "airline": "Air France",
+          "from": "JFK",
+          "to": "CDG",
+          "departureDate": "2025-03-01T18:00:00",
+          "arrivalDate": "2025-03-02T06:00:00",
+          "totalPrice": 1000
+        },
+        "taxi": {
+          "from": "CDG Airport",
+          "to": "Le Meurice",
+          "timeAndDate": "2025-03-02T07:00:00",
+          "totalPrice": 100
+        }
       }
     },
     {
@@ -161,34 +141,28 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRental": [],
-        "hotel": [
-          {
-            "hotelName": "Le Meurice",
-            "location": "Paris, France",
-            "checkInDate": "2025-03-01",
-            "checkOutDate": "2025-03-07",
-            "totalPrice": 1800
-          }
-        ],
-        "flight": [
-          {
-            "airline": "Air France",
-            "from": "JFK",
-            "to": "CDG",
-            "departureDate": "2025-03-01T18:00:00",
-            "arrivalDate": "2025-03-02T06:00:00",
-            "totalPrice": 1000
-          }
-        ],
-        "taxi": [
-          {
-            "from": "CDG Airport",
-            "to": "Le Meurice",
-            "timeAndDate": "2025-03-02T07:00:00",
-            "totalPrice": 100
-          }
-        ]
+        "carRental": {},
+        "hotel": {
+          "hotelName": "Le Meurice",
+          "location": "Paris, France",
+          "checkInDate": "2025-03-01",
+          "checkOutDate": "2025-03-07",
+          "totalPrice": 1800
+        },
+        "flight": {
+          "airline": "Air France",
+          "from": "JFK",
+          "to": "CDG",
+          "departureDate": "2025-03-01T18:00:00",
+          "arrivalDate": "2025-03-02T06:00:00",
+          "totalPrice": 1000
+        },
+        "taxi": {
+          "from": "CDG Airport",
+          "to": "Le Meurice",
+          "timeAndDate": "2025-03-02T07:00:00",
+          "totalPrice": 100
+        }
       }
     },
     {
@@ -200,34 +174,28 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRental": [],
-        "hotel": [
-          {
-            "hotelName": "Le Meurice",
-            "location": "Paris, France",
-            "checkInDate": "2025-03-01",
-            "checkOutDate": "2025-03-07",
-            "totalPrice": 1800
-          }
-        ],
-        "flight": [
-          {
-            "airline": "Air France",
-            "from": "JFK",
-            "to": "CDG",
-            "departureDate": "2025-03-01T18:00:00",
-            "arrivalDate": "2025-03-02T06:00:00",
-            "totalPrice": 1000
-          }
-        ],
-        "taxi": [
-          {
-            "from": "CDG Airport",
-            "to": "Le Meurice",
-            "timeAndDate": "2025-03-02T07:00:00",
-            "totalPrice": 100
-          }
-        ]
+        "carRental": {},
+        "hotel": {
+          "hotelName": "Le Meurice",
+          "location": "Paris, France",
+          "checkInDate": "2025-03-01",
+          "checkOutDate": "2025-03-07",
+          "totalPrice": 1800
+        },
+        "flight": {
+          "airline": "Air France",
+          "from": "JFK",
+          "to": "CDG",
+          "departureDate": "2025-03-01T18:00:00",
+          "arrivalDate": "2025-03-02T06:00:00",
+          "totalPrice": 1000
+        },
+        "taxi": {
+          "from": "CDG Airport",
+          "to": "Le Meurice",
+          "timeAndDate": "2025-03-02T07:00:00",
+          "totalPrice": 100
+        }
       }
     },
     {
@@ -239,34 +207,28 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRental": [],
-        "hotel": [
-          {
-            "hotelName": "Le Meurice",
-            "location": "Paris, France",
-            "checkInDate": "2025-03-01",
-            "checkOutDate": "2025-03-07",
-            "totalPrice": 1800
-          }
-        ],
-        "flight": [
-          {
-            "airline": "Air France",
-            "from": "JFK",
-            "to": "CDG",
-            "departureDate": "2025-03-01T18:00:00",
-            "arrivalDate": "2025-03-02T06:00:00",
-            "totalPrice": 1000
-          }
-        ],
-        "taxi": [
-          {
-            "from": "CDG Airport",
-            "to": "Le Meurice",
-            "timeAndDate": "2025-03-02T07:00:00",
-            "totalPrice": 100
-          }
-        ]
+        "carRental": {},
+        "hotel": {
+          "hotelName": "Le Meurice",
+          "location": "Paris, France",
+          "checkInDate": "2025-03-01",
+          "checkOutDate": "2025-03-07",
+          "totalPrice": 1800
+        },
+        "flight": {
+          "airline": "Air France",
+          "from": "JFK",
+          "to": "CDG",
+          "departureDate": "2025-03-01T18:00:00",
+          "arrivalDate": "2025-03-02T06:00:00",
+          "totalPrice": 1000
+        },
+        "taxi": {
+          "from": "CDG Airport",
+          "to": "Le Meurice",
+          "timeAndDate": "2025-03-02T07:00:00",
+          "totalPrice": 100
+        }
       }
     },
     {
@@ -278,34 +240,28 @@
       "status": "Approved",
       "totalExpense": 3000.0,
       "expenses": {
-        "carRental": [],
-        "hotel": [
-          {
-            "hotelName": "Le Meurice",
-            "location": "Paris, France",
-            "checkInDate": "2025-03-01",
-            "checkOutDate": "2025-03-07",
-            "totalPrice": 1800
-          }
-        ],
-        "flight": [
-          {
-            "airline": "Air France",
-            "from": "JFK",
-            "to": "CDG",
-            "departureDate": "2025-03-01T18:00:00",
-            "arrivalDate": "2025-03-02T06:00:00",
-            "totalPrice": 1000
-          }
-        ],
-        "taxi": [
-          {
-            "from": "CDG Airport",
-            "to": "Le Meurice",
-            "timeAndDate": "2025-03-02T07:00:00",
-            "totalPrice": 100
-          }
-        ]
+        "carRental": {},
+        "hotel": {
+          "hotelName": "Le Meurice",
+          "location": "Paris, France",
+          "checkInDate": "2025-03-01",
+          "checkOutDate": "2025-03-07",
+          "totalPrice": 1800
+        },
+        "flight": {
+          "airline": "Air France",
+          "from": "JFK",
+          "to": "CDG",
+          "departureDate": "2025-03-01T18:00:00",
+          "arrivalDate": "2025-03-02T06:00:00",
+          "totalPrice": 1000
+        },
+        "taxi": {
+          "from": "CDG Airport",
+          "to": "Le Meurice",
+          "timeAndDate": "2025-03-02T07:00:00",
+          "totalPrice": 100
+        }
       }
     }
   ]

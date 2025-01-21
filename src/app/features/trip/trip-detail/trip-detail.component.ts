@@ -108,7 +108,6 @@ export class TripDetailComponent implements OnInit {
           filter((state): state is TripModel => !!state),
           tap((state) => {
             this.tripForm.patchValue(state);
-            console.log(this.tripForm.getRawValue());
           })
         )
         .subscribe();
