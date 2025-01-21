@@ -5,7 +5,7 @@ export const selectTripState = createFeatureSelector<TripState>('trip');
 
 export const selectAllTrips = createSelector(
   selectTripState,
-  (state) => state.trips
+  (state) => state.trips || []
 );
 
 export const selectLoading = createSelector(
@@ -22,3 +22,8 @@ export const selectSelectedTrip = createSelector(
   selectTripState,
   (state) => state.selectedTrip
 );
+
+export const selectTripById = (id: string) =>
+  createSelector(selectTripState, (trips) => {
+    return trips.trips.find((trip) => trip.id === id) || null;
+  });

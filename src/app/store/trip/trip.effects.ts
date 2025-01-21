@@ -50,4 +50,18 @@ export class TripEffects {
       )
     )
   );
+
+  loadTripById$ = createEffect(() =>
+    this._actions$.pipe(
+      ofType(TripActions.loadTripById),
+      mergeMap(({ id }) =>
+        this._tripService.getTripById(id).pipe(
+          map((trip) => TripActions.loadTripByIdSuccess({ trip })),
+          catchError((error) =>
+            of(TripActions.loadTripByIdFailure({ error: error.message }))
+          )
+        )
+      )
+    )
+  );
 }

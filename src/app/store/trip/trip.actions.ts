@@ -53,3 +53,18 @@ export const deleteTripFailure = createAction(
   '[Trip] Delete Trip Failure',
   props<{ error: string }>()
 );
+
+export const loadTripById = createAction(
+  '[Trip API] Load Trip By ID',
+  props<{ id: string }>()
+);
+
+export const loadTripByIdSuccess = createAction(
+  '[Trip API] Load Trip By ID Success',
+  props<{ trip: TripModel }>()
+);
+
+export const loadTripByIdFailure = createAction(
+  '[Trip API] Load Trip By ID Failure',
+  props<{ error: string }>()
+);
