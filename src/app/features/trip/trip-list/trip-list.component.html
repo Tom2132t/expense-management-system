@@ -1,14 +1,14 @@
 <div class="table-container">
-  <mat-form-field>
+  <mat-form-field class="w-full">
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. Mia"
+      #input
+    />
   </mat-form-field>
-  <table
-    mat-table
-    [dataSource]="(trips$ | async) ?? []"
-    class="mat-elevation-z8"
-    matSort
-  >
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <!-- Trip Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Trip Name</th>
@@ -43,7 +43,7 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let trip">
-        <button mat-icon-button (click)="onUpdate(trip)">
+        <button mat-icon-button (click)="onUpdate(trip.id)">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button color="warn" (click)="onDelete(trip.id)">
