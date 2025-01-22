@@ -64,4 +64,16 @@ export class TripEffects {
       )
     )
   );
+
+  updateTrip$ = createEffect(() =>
+    this._actions$.pipe(
+      ofType(TripActions.updateTrip),
+      mergeMap(({ id, trip }) =>
+        this._tripService.updateTrip(id, trip).pipe(
+          map(() => TripActions.updateTripSuccess({ trip })),
+          catchError((error) => of(TripActions.updateTripFailure({ error })))
+        )
+      )
+    )
+  );
 }

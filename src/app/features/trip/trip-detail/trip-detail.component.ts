@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter, Observable, Subscription, tap } from 'rxjs';
 import { TripModel } from '../../../shared/models/trip.model';
@@ -14,14 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ToastService } from '../../../core/services/toaster.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-trip-detail',
@@ -35,15 +29,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatButtonModule,
     MatIconModule,
     MatDatepickerModule,
-    MatNativeDateModule,
-    MatCardModule,
-    MatDividerModule,
-    MatTooltipModule,
-    MatGridListModule,
-    MatCheckboxModule,
-    MatExpansionModule,
-    MatTabsModule,
-    MatProgressSpinnerModule
+    MatNativeDateModule
   ],
   templateUrl: './trip-detail.component.html',
   styleUrl: './trip-detail.component.scss'
@@ -54,6 +40,8 @@ export class TripDetailComponent implements OnInit {
   private _route = inject(ActivatedRoute);
   private _store = inject(Store);
   private _fb = inject(FormBuilder);
+  private _toasterService = inject(ToastService);
+  private _router = inject(Router);
 
   tripForm: FormGroup = this._fb.group({
     id: [''],
@@ -115,10 +103,37 @@ export class TripDetailComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.tripForm.valid) {
-      console.log('Form Submitted:', this.tripForm.value);
-    } else {
-      console.log('Form is invalid');
+    if (this.tripForm.invalid) {
+      return;
     }
+
+    const tripData = this.tripForm.value;
+
+    const payload = {
+      ...tripData,
+      id: tripData.id || uuidv4(),
+      totalExpense: this._calculateTotalExpense(tripData.expenses),
+      status: tripData.status || 'Draft'
+    };
+
+    if (tripData.id) {
+      this._store.dispatch(
+        TripActions.updateTrip({ id: tripData.id, trip: tripData })
+      );
+      this._toasterService.showToast('success', 'Trip Updated Succesfully');
+    } else {
+      this._store.dispatch(TripActions.addTrip({ trip: payload }));
+      this._toasterService.showToast('success', 'Trip created Succesfully');
+      this._router.navigateByUrl('/trip', tripData.id);
+    }
+  }
+
+  private _calculateTotalExpense(trip: TripModel): number {
+    const carRentalExpense = trip.expenses?.carRental?.totalPrice || 0;
+    const hotelExpense = trip.expenses?.hotel?.totalPrice || 0;
+    const flightExpense = trip.expenses?.flight?.totalPrice || 0;
+    const taxiExpense = trip.expenses?.taxi?.totalPrice || 0;
+
+    return carRentalExpense + hotelExpense + flightExpense + taxiExpense;
   }
 }

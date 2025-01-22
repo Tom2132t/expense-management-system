@@ -4,10 +4,15 @@
     <input
       matInput
       (keyup)="applyFilter($event)"
-      placeholder="Ex. Mia"
+      placeholder="Search"
       #input
     />
   </mat-form-field>
+  <div class="pb-4">
+    <button mat-raised-button [routerLink]="['/trip/create']">
+      Create Trip
+    </button>
+  </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <!-- Trip Name Column -->
     <ng-container matColumnDef="name">

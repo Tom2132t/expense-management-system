@@ -15,7 +15,7 @@ import { TripModel } from '../../../shared/models/trip.model';
 import { AppState } from '../../../store/app.state';
 import * as TripActions from '../../../store/trip/trip.actions';
 import { selectAllTrips } from '../../../store/trip/trip.selectors';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-trip-list',
@@ -23,6 +23,7 @@ import { Router } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
