@@ -34,6 +34,7 @@
       "endDate": "2025-01-27",
       "status": "draft",
       "totalExpense": 1250.5,
+      "comment": "",
       "expenses": {
         "carRental": {
           "carName": "Toyota Camry",
@@ -72,8 +73,9 @@
       "duration": "7 days",
       "startDate": "2025-03-01",
       "endDate": "2025-03-07",
-      "status": "Approved",
+      "status": "approved",
       "totalExpense": 3000,
+      "comment": "",
       "expenses": {
         "carRental": {},
         "hotel": {
@@ -105,8 +107,9 @@
       "duration": "7 days",
       "startDate": "2025-03-01",
       "endDate": "2025-03-07",
-      "status": "Approved",
+      "status": "approved",
       "totalExpense": 3000,
+      "comment": "",
       "expenses": {
         "carRental": {},
         "hotel": {
@@ -138,8 +141,9 @@
       "duration": "7 days",
       "startDate": "2025-03-01",
       "endDate": "2025-03-07",
-      "status": "Approved",
+      "status": "approved",
       "totalExpense": 3000,
+      "comment": "",
       "expenses": {
         "carRental": {},
         "hotel": {
@@ -171,8 +175,9 @@
       "duration": "7 days",
       "startDate": "2025-03-01",
       "endDate": "2025-03-07",
-      "status": "Approved",
+      "status": "approved",
       "totalExpense": 3000,
+      "comment": "",
       "expenses": {
         "carRental": {},
         "hotel": {
@@ -204,8 +209,9 @@
       "duration": "7 days",
       "startDate": "2025-03-01",
       "endDate": "2025-03-07",
-      "status": "Approved",
+      "status": "approved",
       "totalExpense": 3000,
+      "comment": "",
       "expenses": {
         "carRental": {},
         "hotel": {
@@ -237,8 +243,9 @@
       "duration": "7 days",
       "startDate": "2025-03-01",
       "endDate": "2025-03-07",
-      "status": "Approved",
+      "status": "approved",
       "totalExpense": 3000,
+      "comment": "",
       "expenses": {
         "carRental": {},
         "hotel": {

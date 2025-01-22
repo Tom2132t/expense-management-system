@@ -52,6 +52,15 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
+      <mat-label>Comment</mat-label>
+      <textarea
+        matInput
+        placeholder="Leave a comment"
+        formControlName="comment"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
       <mat-label>Total Expense</mat-label>
       <input matInput type="number" formControlName="totalExpense" />
     </mat-form-field>
@@ -253,4 +262,14 @@
 
   <!-- Submit Button -->
   <button mat-raised-button color="primary" type="submit">Submit</button>
+  @if (!isApprover && !isFinancer && !isTripApproved && tripId) {
+    <button
+      mat-raised-button
+      color="secondary"
+      type="button"
+      (click)="onApproveTrip()"
+    >
+      Approve
+    </button>
+  }
 </form>

@@ -20,6 +20,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ToastService } from '../../../core/services/toaster.service';
+import { AuthService } from '../../../auth/auth.service';
+import { Role } from '../../../shared/enums/role.enum';
+import { TripStatus } from '../../../shared/enums/trip-status.enum';
 
 @Component({
   selector: 'app-trip-detail',
@@ -41,19 +44,26 @@ import { ToastService } from '../../../core/services/toaster.service';
 export class TripDetailComponent implements OnInit {
   trip$!: Observable<TripModel> | Subscription;
   tripId!: string;
+
   private _route = inject(ActivatedRoute);
   private _store = inject(Store);
   private _fb = inject(FormBuilder);
   private _toasterService = inject(ToastService);
   private _router = inject(Router);
+  private _authService = inject(AuthService);
+
+  isApprover = this._authService.user?.role === Role.APPROVER;
+  isFinancer = this._authService.user?.role === Role.FINANCE;
+  isTripApproved: boolean = false;
 
   tripForm: FormGroup = this._fb.group({
     name: ['', [Validators.required]],
     duration: ['', [Validators.required]],
     startDate: ['', [Validators.required]],
     endDate: ['', [Validators.required]],
-    status: ['', [Validators.required]],
+    status: [{ value: '', disabled: true }, [Validators.required]],
     totalExpense: [{ value: 0, disabled: true }],
+    comment: [{ value: '', disabled: !this.isApprover }],
     expenses: this._fb.group({
       carRental: this._fb.group({
         carName: [''],
@@ -100,6 +110,12 @@ export class TripDetailComponent implements OnInit {
           filter((state): state is TripModel => !!state),
           tap((state) => {
             this.tripForm.patchValue(state);
+            this.isTripApproved = state.status === TripStatus.APPROVED;
+
+            if (state.id && state.status === TripStatus.APPROVED) {
+              this.tripForm.disable();
+              this.tripForm.get('comment')?.enable();
+            }
           })
         )
         .subscribe();
@@ -113,21 +129,41 @@ export class TripDetailComponent implements OnInit {
 
     const tripData = this.tripForm.value;
 
+    const payload = {
+      ...tripData,
+      totalExpense: this._calculateTotalExpense(tripData),
+      status: tripData.status || 'Draft'
+    };
+
     if (this.tripId) {
       this._store.dispatch(
         TripActions.updateTrip({ id: this.tripId, trip: tripData })
       );
       this._toasterService.showToast('success', 'Trip Updated Succesfully');
     } else {
-      const payload = {
-        ...tripData,
-        totalExpense: this._calculateTotalExpense(tripData.expenses),
-        status: tripData.status || 'Draft'
-      };
       this._store.dispatch(TripActions.addTrip({ trip: payload }));
       this._toasterService.showToast('success', 'Trip created Succesfully');
-      this._router.navigateByUrl('/trip/list');
+      this._router.navigate(['../'], { relativeTo: this._route });
     }
+  }
+
+  onApproveTrip(): void {
+    const updatedTrip = {
+      ...this.tripForm.value,
+      status: TripStatus.APPROVED
+    };
+
+    this._store.dispatch(
+      TripActions.updateTrip({ id: this.tripId, trip: updatedTrip })
+    );
+
+    this.tripForm.patchValue({
+      status: TripStatus.APPROVED
+    });
+
+    this.tripForm.disable();
+    this.isTripApproved = true;
+    this._toasterService.showToast('success', 'Trip approved successfully');
   }
 
   private _calculateTotalExpense(trip: TripModel): number {

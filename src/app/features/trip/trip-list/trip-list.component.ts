@@ -16,6 +16,8 @@ import { AppState } from '../../../store/app.state';
 import * as TripActions from '../../../store/trip/trip.actions';
 import { selectAllTrips } from '../../../store/trip/trip.selectors';
 import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../auth/auth.service';
+import { Role } from '../../../shared/enums/role.enum';
 
 @Component({
   selector: 'app-trip-list',
@@ -39,9 +41,12 @@ export class TripListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  authService = inject(AuthService)
   private _store = inject(Store<AppState>);
   private _toasterService = inject(ToastService);
   private _router = inject(Router);
+
+  isEndUser = this.authService.user?.role === Role.END_USER
 
   displayedColumns: string[] = [
     'name',

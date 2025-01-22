@@ -11,7 +11,7 @@ export const ROUTES: Routes = [
   },
   {
     path: '',
-    data: { roles: [Role.FINANCE, Role.APPROVER] },
+    data: { roles: [Role.FINANCE, Role.APPROVER, Role.END_USER] },
     children: [
       {
         path: 'list',

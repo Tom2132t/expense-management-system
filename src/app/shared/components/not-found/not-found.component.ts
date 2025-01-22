@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
       Oops! The page you're looking for doesn't exist.
     </p>
     <a
-      routerLink="/login"
+      routerLink="../"
       class="mt-6 px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md focus:ring-4 focus:ring-blue-300"
     >
       Go Back Home

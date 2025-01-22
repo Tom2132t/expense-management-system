@@ -18,7 +18,7 @@ export const routes: Routes = [
         path: 'trip',
         loadChildren: () =>
           import('../app/features/trip/trip.routes').then((m) => m.ROUTES),
-        data: { roles: [Role.FINANCE, Role.APPROVER] }
+        data: { roles: [Role.FINANCE, Role.APPROVER, Role.END_USER] }
       },
       {
         path: 'dashboard',
