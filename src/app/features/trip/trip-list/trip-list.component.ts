@@ -50,6 +50,7 @@ export class TripListComponent implements OnInit {
   private _router = inject(Router);
 
   isEndUser = this._authService.user?.role === Role.END_USER;
+  isApprover = this._authService.user?.role === Role.APPROVER;
 
   displayedColumns: string[] = [
     'name',
@@ -65,11 +66,22 @@ export class TripListComponent implements OnInit {
   trips$!: Observable<TripModel[]>;
 
   ngOnInit(): void {
-    const trips$ = this.isEndUser
-      ? this._store.select(selectAllTrips)
-      : this._store.select(selectApprovedTrips);
-
-    this._initializeDataSource(trips$);
+    this.trips$ =
+      this.isEndUser || this.isApprover
+        ? this._store.select(selectAllTrips).pipe(
+            tap((res) => {
+              this.dataSource = new MatTableDataSource(res);
+              this.dataSource.paginator = this.paginator;
+              this.dataSource.sort = this.sort;
+            })
+          )
+        : this._store.select(selectApprovedTrips).pipe(
+            tap((res) => {
+              this.dataSource = new MatTableDataSource(res);
+              this.dataSource.paginator = this.paginator;
+              this.dataSource.sort = this.sort;
+            })
+          );
     this._loadTrips();
   }
 
@@ -99,17 +111,5 @@ export class TripListComponent implements OnInit {
   private _loadTrips(): void {
     this._store.dispatch(TripActions.loadTrips());
     this.trips$.subscribe();
-  }
-
-  private _initializeDataSource(trips$: Observable<TripModel[]>): void {
-    trips$
-      .pipe(
-        tap((res) => {
-          this.dataSource = new MatTableDataSource(res);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        })
-      )
-      .subscribe();
   }
 }
