@@ -34,7 +34,7 @@ export class LoginComponent {
         .login(this.form.value)
         .pipe(
           tap(() => {
-            this._router.navigate(['/dashboard']);
+            this._router.navigate(['/trip']);
           })
         )
         .subscribe();

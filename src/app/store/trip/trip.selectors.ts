@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { TripState } from './trip.reducer';
+import { TripStatus } from '../../shared/enums/trip-status.enum';
 
 export const selectTripState = createFeatureSelector<TripState>('trip');
 
@@ -27,3 +28,7 @@ export const selectTripById = (id: string) =>
   createSelector(selectTripState, (trips) => {
     return trips.trips.find((trip) => trip.id === id) || null;
   });
+
+export const selectApprovedTrips = createSelector(selectAllTrips, (trips) =>
+  trips.filter((trip) => trip.status === TripStatus.APPROVED)
+);

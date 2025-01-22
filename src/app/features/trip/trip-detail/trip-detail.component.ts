@@ -127,7 +127,7 @@ export class TripDetailComponent implements OnInit {
       return;
     }
 
-    const tripData = this.tripForm.value;
+    const tripData = this.tripForm.getRawValue();
 
     const payload = {
       ...tripData,

@@ -14,7 +14,10 @@ import { ToastService } from '../../../core/services/toaster.service';
 import { TripModel } from '../../../shared/models/trip.model';
 import { AppState } from '../../../store/app.state';
 import * as TripActions from '../../../store/trip/trip.actions';
-import { selectAllTrips } from '../../../store/trip/trip.selectors';
+import {
+  selectAllTrips,
+  selectApprovedTrips
+} from '../../../store/trip/trip.selectors';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../auth/auth.service';
 import { Role } from '../../../shared/enums/role.enum';
@@ -41,12 +44,12 @@ export class TripListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  authService = inject(AuthService)
+  private _authService = inject(AuthService);
   private _store = inject(Store<AppState>);
   private _toasterService = inject(ToastService);
   private _router = inject(Router);
 
-  isEndUser = this.authService.user?.role === Role.END_USER
+  isEndUser = this._authService.user?.role === Role.END_USER;
 
   displayedColumns: string[] = [
     'name',
@@ -59,15 +62,14 @@ export class TripListComponent implements OnInit {
 
   dataSource = new MatTableDataSource<TripModel>();
 
-  trips$: Observable<TripModel[]> = this._store.select(selectAllTrips).pipe(
-    tap((res) => {
-      this.dataSource = new MatTableDataSource(res);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    })
-  );
+  trips$!: Observable<TripModel[]>;
 
   ngOnInit(): void {
+    const trips$ = this.isEndUser
+      ? this._store.select(selectAllTrips)
+      : this._store.select(selectApprovedTrips);
+
+    this._initializeDataSource(trips$);
     this._loadTrips();
   }
 
@@ -97,5 +99,17 @@ export class TripListComponent implements OnInit {
   private _loadTrips(): void {
     this._store.dispatch(TripActions.loadTrips());
     this.trips$.subscribe();
+  }
+
+  private _initializeDataSource(trips$: Observable<TripModel[]>): void {
+    trips$
+      .pipe(
+        tap((res) => {
+          this.dataSource = new MatTableDataSource(res);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        })
+      )
+      .subscribe();
   }
 }
