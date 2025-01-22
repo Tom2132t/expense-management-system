@@ -262,14 +262,26 @@
 
   <!-- Submit Button -->
   <button mat-raised-button color="primary" type="submit">Submit</button>
-  @if (!isApprover && !isFinancer && !isTripApproved && tripId) {
+  @if (!isApprover && !isFinancer && !isTripSentForApproval && tripId) {
     <button
       mat-raised-button
       color="secondary"
       type="button"
-      (click)="onApproveTrip()"
+      [disabled]="tripForm.invalid"
+      (click)="onSendForApproval()"
     >
       Send to Approver
+    </button>
+  }
+  @if (isApprover && !isTripApproved && tripId) {
+    <button
+      mat-raised-button
+      color="secondary"
+      type="button"
+      [disabled]="tripForm.invalid"
+      (click)="onApproveTrip()"
+    >
+      Approve
     </button>
   }
 </form>

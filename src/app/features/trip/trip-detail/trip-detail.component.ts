@@ -54,6 +54,7 @@ export class TripDetailComponent implements OnInit {
 
   isApprover = this._authService.user?.role === Role.APPROVER;
   isFinancer = this._authService.user?.role === Role.FINANCE;
+  isTripSentForApproval: boolean = false;
   isTripApproved: boolean = false;
 
   tripForm: FormGroup = this._fb.group({
@@ -110,9 +111,15 @@ export class TripDetailComponent implements OnInit {
           filter((state): state is TripModel => !!state),
           tap((state) => {
             this.tripForm.patchValue(state);
+            this.isTripSentForApproval =
+              state.status === TripStatus.PENDING_APPROVAL;
+
             this.isTripApproved = state.status === TripStatus.APPROVED;
 
-            if (state.id && state.status === TripStatus.APPROVED) {
+            if (
+              (state.id && state.status === TripStatus.APPROVED) ||
+              state.status === TripStatus.PENDING_APPROVAL
+            ) {
               this.tripForm.disable();
               this.tripForm.get('comment')?.enable();
             }
@@ -145,6 +152,28 @@ export class TripDetailComponent implements OnInit {
       this._toasterService.showToast('success', 'Trip created Succesfully');
       this._router.navigate(['../'], { relativeTo: this._route });
     }
+  }
+
+  onSendForApproval(): void {
+    const updatedTrip = {
+      ...this.tripForm.value,
+      status: TripStatus.PENDING_APPROVAL
+    };
+
+    this._store.dispatch(
+      TripActions.updateTrip({ id: this.tripId, trip: updatedTrip })
+    );
+
+    this.tripForm.patchValue({
+      status: TripStatus.PENDING_APPROVAL
+    });
+
+    this.tripForm.disable();
+    this.isTripSentForApproval = true;
+    this._toasterService.showToast(
+      'success',
+      'Trip sent for approval successfully'
+    );
   }
 
   onApproveTrip(): void {
