@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { filter, Observable, Subscription, tap } from 'rxjs';
@@ -15,7 +20,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ToastService } from '../../../core/services/toaster.service';
-import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-trip-detail',
@@ -36,7 +40,7 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class TripDetailComponent implements OnInit {
   trip$!: Observable<TripModel> | Subscription;
-
+  tripId!: string;
   private _route = inject(ActivatedRoute);
   private _store = inject(Store);
   private _fb = inject(FormBuilder);
@@ -44,13 +48,12 @@ export class TripDetailComponent implements OnInit {
   private _router = inject(Router);
 
   tripForm: FormGroup = this._fb.group({
-    id: [''],
-    name: [''],
-    duration: [''],
-    startDate: [''],
-    endDate: [''],
-    status: [''],
-    totalExpense: [0],
+    name: ['', [Validators.required]],
+    duration: ['', [Validators.required]],
+    startDate: ['', [Validators.required]],
+    endDate: ['', [Validators.required]],
+    status: ['', [Validators.required]],
+    totalExpense: [{ value: 0, disabled: true }],
     expenses: this._fb.group({
       carRental: this._fb.group({
         carName: [''],
@@ -89,6 +92,7 @@ export class TripDetailComponent implements OnInit {
 
     if (id) {
       this._store.dispatch(TripActions.loadTripById({ id }));
+      this.tripId = id;
 
       this.trip$ = this._store
         .select(selectTripById(id || ''))
@@ -109,22 +113,20 @@ export class TripDetailComponent implements OnInit {
 
     const tripData = this.tripForm.value;
 
-    const payload = {
-      ...tripData,
-      id: tripData.id || uuidv4(),
-      totalExpense: this._calculateTotalExpense(tripData.expenses),
-      status: tripData.status || 'Draft'
-    };
-
-    if (tripData.id) {
+    if (this.tripId) {
       this._store.dispatch(
-        TripActions.updateTrip({ id: tripData.id, trip: tripData })
+        TripActions.updateTrip({ id: this.tripId, trip: tripData })
       );
       this._toasterService.showToast('success', 'Trip Updated Succesfully');
     } else {
+      const payload = {
+        ...tripData,
+        totalExpense: this._calculateTotalExpense(tripData.expenses),
+        status: tripData.status || 'Draft'
+      };
       this._store.dispatch(TripActions.addTrip({ trip: payload }));
       this._toasterService.showToast('success', 'Trip created Succesfully');
-      this._router.navigateByUrl('/trip', tripData.id);
+      this._router.navigateByUrl('/trip/list');
     }
   }
 
