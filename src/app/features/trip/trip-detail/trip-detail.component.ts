@@ -54,6 +54,7 @@ export class TripDetailComponent implements OnInit {
 
   isApprover = this._authService.user?.role === Role.APPROVER;
   isFinancer = this._authService.user?.role === Role.FINANCE;
+  isEndUser = this._authService.user?.role === Role.END_USER;
   isTripSentForApproval: boolean = false;
   isTripApproved: boolean = false;
 
@@ -64,7 +65,7 @@ export class TripDetailComponent implements OnInit {
     endDate: ['', [Validators.required]],
     status: [{ value: '', disabled: true }, [Validators.required]],
     totalExpense: [{ value: 0, disabled: true }],
-    comment: [{ value: '', disabled: !this.isApprover }],
+    comment: [{ value: '', disabled: !this.isApprover }, [Validators.required]],
     expenses: this._fb.group({
       carRental: this._fb.group({
         carName: [''],
@@ -111,9 +112,9 @@ export class TripDetailComponent implements OnInit {
           filter((state): state is TripModel => !!state),
           tap((state) => {
             this.tripForm.patchValue(state);
+
             this.isTripSentForApproval =
               state.status === TripStatus.PENDING_APPROVAL;
-
             this.isTripApproved = state.status === TripStatus.APPROVED;
 
             if (
@@ -121,7 +122,10 @@ export class TripDetailComponent implements OnInit {
               state.status === TripStatus.PENDING_APPROVAL
             ) {
               this.tripForm.disable();
+            }
+            if (state.status === TripStatus.PENDING_APPROVAL) {
               this.tripForm.get('comment')?.enable();
+              this.tripForm.get('comment')?.addValidators(Validators.required);
             }
           })
         )
@@ -135,16 +139,17 @@ export class TripDetailComponent implements OnInit {
     }
 
     const tripData = this.tripForm.getRawValue();
+    tripData.startDate = new Date(tripData.startDate);
 
     const payload = {
       ...tripData,
       totalExpense: this._calculateTotalExpense(tripData),
-      status: tripData.status || 'Draft'
+      status: tripData.status || 'draft'
     };
 
     if (this.tripId) {
       this._store.dispatch(
-        TripActions.updateTrip({ id: this.tripId, trip: tripData })
+        TripActions.updateTrip({ id: this.tripId, trip: payload })
       );
       this._toasterService.showToast('success', 'Trip Updated Succesfully');
     } else {
@@ -177,8 +182,9 @@ export class TripDetailComponent implements OnInit {
   }
 
   onApproveTrip(): void {
+    const form = this.tripForm.getRawValue();
     const updatedTrip = {
-      ...this.tripForm.value,
+      ...form,
       status: TripStatus.APPROVED
     };
 
@@ -202,5 +208,9 @@ export class TripDetailComponent implements OnInit {
     const taxiExpense = trip.expenses?.taxi?.totalPrice || 0;
 
     return carRentalExpense + hotelExpense + flightExpense + taxiExpense;
+  }
+
+  onBack() {
+    this._router.navigate(['/trip/list']);
   }
 }

@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "tom",
       "email": "tom@example.com",
       "password": "123",
@@ -9,7 +9,7 @@
       "role": "end-user"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "mark",
       "email": "mark@example.com",
       "password": "123",
@@ -17,7 +17,7 @@
       "role": "approver"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "john",
       "email": "john@example.com",
       "password": "123",
@@ -26,47 +26,6 @@
     }
   ],
   "trips": [
-    {
-      "id": "1",
-      "name": "Business Conference NYC",
-      "duration": "3 days",
-      "startDate": "2025-01-25",
-      "endDate": "2025-01-27",
-      "status": "draft",
-      "totalExpense": 1250.5,
-      "comment": "",
-      "expenses": {
-        "carRental": {
-          "carName": "Toyota Camry",
-          "pickUpDate": "2025-01-25T10:00:00",
-          "dropOffDate": "2025-01-27T15:00:00",
-          "pickUpLocation": "JFK Airport",
-          "dropOffLocation": "JFK Airport",
-          "totalPrice": 150
-        },
-        "hotel": {
-          "hotelName": "Hilton Times Square",
-          "location": "New York, NY",
-          "checkInDate": "2025-01-25",
-          "checkOutDate": "2025-01-27",
-          "totalPrice": 700
-        },
-        "flight": {
-          "airline": "Delta Airlines",
-          "from": "LAX",
-          "to": "JFK",
-          "departureDate": "2025-01-25T07:00:00",
-          "arrivalDate": "2025-01-25T15:00:00",
-          "totalPrice": 350
-        },
-        "taxi": {
-          "from": "JFK Airport",
-          "to": "Hilton Times Square",
-          "timeAndDate": "2025-01-25T16:00:00",
-          "totalPrice": 50
-        }
-      }
-    },
     {
       "id": "2",
       "name": "Vacation in Paris",
@@ -136,16 +95,22 @@
       }
     },
     {
-      "id": "4",
       "name": "Vacation in Paris",
       "duration": "7 days",
-      "startDate": "2025-03-01",
+      "startDate": "2025-03-01T00:00:00.000Z",
       "endDate": "2025-03-07",
       "status": "approved",
-      "totalExpense": 3000,
+      "totalExpense": 2900,
       "comment": "",
       "expenses": {
-        "carRental": {},
+        "carRental": {
+          "carName": "",
+          "pickUpDate": "",
+          "dropOffDate": "",
+          "pickUpLocation": "",
+          "dropOffLocation": "",
+          "totalPrice": 0
+        },
         "hotel": {
           "hotelName": "Le Meurice",
           "location": "Paris, France",
@@ -167,41 +132,8 @@
           "timeAndDate": "2025-03-02T07:00:00",
           "totalPrice": 100
         }
-      }
-    },
-    {
-      "id": "5",
-      "name": "Vacation in Paris",
-      "duration": "7 days",
-      "startDate": "2025-03-01",
-      "endDate": "2025-03-07",
-      "status": "approved",
-      "totalExpense": 3000,
-      "comment": "",
-      "expenses": {
-        "carRental": {},
-        "hotel": {
-          "hotelName": "Le Meurice",
-          "location": "Paris, France",
-          "checkInDate": "2025-03-01",
-          "checkOutDate": "2025-03-07",
-          "totalPrice": 1800
-        },
-        "flight": {
-          "airline": "Air France",
-          "from": "JFK",
-          "to": "CDG",
-          "departureDate": "2025-03-01T18:00:00",
-          "arrivalDate": "2025-03-02T06:00:00",
-          "totalPrice": 1000
-        },
-        "taxi": {
-          "from": "CDG Airport",
-          "to": "Le Meurice",
-          "timeAndDate": "2025-03-02T07:00:00",
-          "totalPrice": 100
-        }
-      }
+      },
+      "id": "5"
     },
     {
       "id": "6",
@@ -238,16 +170,22 @@
       }
     },
     {
-      "id": "7",
       "name": "Vacation in Paris",
       "duration": "7 days",
-      "startDate": "2025-03-01",
+      "startDate": "2025-03-01T00:00:00.000Z",
       "endDate": "2025-03-07",
       "status": "approved",
-      "totalExpense": 3000,
+      "totalExpense": 2900,
       "comment": "",
       "expenses": {
-        "carRental": {},
+        "carRental": {
+          "carName": "",
+          "pickUpDate": "",
+          "dropOffDate": "",
+          "pickUpLocation": "",
+          "dropOffLocation": "",
+          "totalPrice": 0
+        },
         "hotel": {
           "hotelName": "Le Meurice",
           "location": "Paris, France",
@@ -269,7 +207,213 @@
           "timeAndDate": "2025-03-02T07:00:00",
           "totalPrice": 100
         }
-      }
+      },
+      "id": "7"
+    },
+    {
+      "name": "Korca",
+      "duration": "12",
+      "startDate": "2025-01-06T23:00:00.000Z",
+      "endDate": "2025-01-11T23:00:00.000Z",
+      "status": "approved",
+      "totalExpense": 0,
+      "comment": "xasasas",
+      "expenses": {
+        "carRental": {
+          "carName": "",
+          "pickUpDate": "",
+          "dropOffDate": "",
+          "pickUpLocation": "",
+          "dropOffLocation": "",
+          "totalPrice": 0
+        },
+        "hotel": {
+          "hotelName": "",
+          "location": "",
+          "checkInDate": "",
+          "checkOutDate": "",
+          "totalPrice": 0
+        },
+        "flight": {
+          "airline": "",
+          "from": "",
+          "to": "",
+          "departureDate": "",
+          "arrivalDate": "",
+          "totalPrice": 0
+        },
+        "taxi": {
+          "from": "",
+          "to": "",
+          "timeAndDate": "",
+          "totalPrice": 0
+        }
+      },
+      "id": "0c06"
+    },
+    {
+      "name": "Korca",
+      "duration": "12",
+      "startDate": "2025-01-06T23:00:00.000Z",
+      "endDate": "2025-01-11T23:00:00.000Z",
+      "status": "approved",
+      "totalExpense": 0,
+      "comment": "sasasas",
+      "expenses": {
+        "carRental": {
+          "carName": "",
+          "pickUpDate": "",
+          "dropOffDate": "",
+          "pickUpLocation": "",
+          "dropOffLocation": "",
+          "totalPrice": 0
+        },
+        "hotel": {
+          "hotelName": "",
+          "location": "",
+          "checkInDate": "",
+          "checkOutDate": "",
+          "totalPrice": 0
+        },
+        "flight": {
+          "airline": "",
+          "from": "",
+          "to": "",
+          "departureDate": "",
+          "arrivalDate": "",
+          "totalPrice": 0
+        },
+        "taxi": {
+          "from": "",
+          "to": "",
+          "timeAndDate": "",
+          "totalPrice": 0
+        }
+      },
+      "id": "deca"
+    },
+    {
+      "name": "12",
+      "duration": "12",
+      "startDate": "2025-01-13T23:00:00.000Z",
+      "endDate": "2025-01-20T23:00:00.000Z",
+      "status": "draft",
+      "totalExpense": 0,
+      "comment": "",
+      "expenses": {
+        "carRental": {
+          "carName": "",
+          "pickUpDate": "",
+          "dropOffDate": "",
+          "pickUpLocation": "",
+          "dropOffLocation": "",
+          "totalPrice": 0
+        },
+        "hotel": {
+          "hotelName": "",
+          "location": "",
+          "checkInDate": "",
+          "checkOutDate": "",
+          "totalPrice": 0
+        },
+        "flight": {
+          "airline": "",
+          "from": "",
+          "to": "",
+          "departureDate": "",
+          "arrivalDate": "",
+          "totalPrice": 0
+        },
+        "taxi": {
+          "from": "",
+          "to": "",
+          "timeAndDate": "",
+          "totalPrice": 0
+        }
+      },
+      "id": "0143"
+    },
+    {
+      "name": "Tirana",
+      "duration": "34",
+      "startDate": "2025-01-05T23:00:00.000Z",
+      "endDate": "2025-01-14T23:00:00.000Z",
+      "status": "approved",
+      "totalExpense": 0,
+      "comment": "its okay",
+      "expenses": {
+        "carRental": {
+          "carName": "",
+          "pickUpDate": "",
+          "dropOffDate": "",
+          "pickUpLocation": "",
+          "dropOffLocation": "",
+          "totalPrice": 0
+        },
+        "hotel": {
+          "hotelName": "",
+          "location": "",
+          "checkInDate": "",
+          "checkOutDate": "",
+          "totalPrice": 0
+        },
+        "flight": {
+          "airline": "",
+          "from": "",
+          "to": "",
+          "departureDate": "",
+          "arrivalDate": "",
+          "totalPrice": 0
+        },
+        "taxi": {
+          "from": "",
+          "to": "",
+          "timeAndDate": "",
+          "totalPrice": 200
+        }
+      },
+      "id": "561c"
+    },
+    {
+      "name": "Korce",
+      "duration": "12",
+      "startDate": "2025-01-20T23:00:00.000Z",
+      "endDate": "2025-01-21T23:00:00.000Z",
+      "status": "draft",
+      "totalExpense": 900,
+      "comment": "",
+      "expenses": {
+        "carRental": {
+          "carName": "",
+          "pickUpDate": "",
+          "dropOffDate": "",
+          "pickUpLocation": "",
+          "dropOffLocation": "",
+          "totalPrice": 0
+        },
+        "hotel": {
+          "hotelName": "",
+          "location": "",
+          "checkInDate": "",
+          "checkOutDate": "",
+          "totalPrice": 0
+        },
+        "flight": {
+          "airline": "",
+          "from": "",
+          "to": "",
+          "departureDate": "",
+          "arrivalDate": "",
+          "totalPrice": 0
+        },
+        "taxi": {
+          "from": "",
+          "to": "",
+          "timeAndDate": "",
+          "totalPrice": 900
+        }
+      },
+      "id": "91ec"
     }
   ]
 }
