@@ -2,5 +2,27 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.pull-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.container {
+  padding: 10px 10px;
+}
+
+.alert-success {
+  font-weight: 500;
+  background-color: green($color: #000000) !important;
+  color: white;
+}
