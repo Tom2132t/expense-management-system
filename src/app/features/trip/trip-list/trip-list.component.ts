@@ -24,6 +24,10 @@ import {
   selectApprovedTrips
 } from '../../../store/trip/trip.selectors';
 import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
+import {
+  CommunicationActions,
+  CommunicationService
+} from '../../../core/services/communication.service';
 
 @Component({
   selector: 'app-trip-list',
@@ -51,6 +55,7 @@ export class TripListComponent implements OnInit {
   private _store = inject(Store<AppState>);
   private _toasterService = inject(ToastService);
   private _router = inject(Router);
+  private _communicationService = inject(CommunicationService);
 
   isEndUser = this._authService.user?.role === Role.END_USER;
   isApprover = this._authService.user?.role === Role.APPROVER;
@@ -108,6 +113,9 @@ export class TripListComponent implements OnInit {
     this.dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this._store.dispatch(TripActions.deleteTrip({ id }));
+        this._communicationService.sendMessage(
+          CommunicationActions.DELETE_TRIP
+        );
         this._toasterService.showToast('success', 'Trip is deleted');
         this._loadTrips();
       }

@@ -278,7 +278,7 @@
         Back
       </button>
       <div class="pull-right mb-3">
-        @if ((isEndUser && isDraft) || isFinancer) {
+        @if (isEndUser || isFinancer) {
           <button
             mat-raised-button
             color="secondary"

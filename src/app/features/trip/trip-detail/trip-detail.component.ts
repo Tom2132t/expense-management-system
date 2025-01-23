@@ -23,6 +23,10 @@ import { ToastService } from '../../../core/services/toaster.service';
 import { AuthService } from '../../../auth/auth.service';
 import { Role } from '../../../shared/enums/role.enum';
 import { TripStatus } from '../../../shared/enums/trip-status.enum';
+import {
+  CommunicationActions,
+  CommunicationService
+} from '../../../core/services/communication.service';
 
 @Component({
   selector: 'app-trip-detail',
@@ -51,6 +55,7 @@ export class TripDetailComponent implements OnInit {
   private _toasterService = inject(ToastService);
   private _router = inject(Router);
   private _authService = inject(AuthService);
+  private _communicationService = inject(CommunicationService);
 
   isApprover = this._authService.user?.role === Role.APPROVER;
   isFinancer = this._authService.user?.role === Role.FINANCE;
@@ -162,9 +167,11 @@ export class TripDetailComponent implements OnInit {
       this._store.dispatch(
         TripActions.updateTrip({ id: this.tripId, trip: payload })
       );
+      this._communicationService.sendMessage(CommunicationActions.RELOAD_TRIPS);
       this._toasterService.showToast('success', 'Trip Updated Succesfully');
     } else {
       this._store.dispatch(TripActions.addTrip({ trip: payload }));
+      this._communicationService.sendMessage(CommunicationActions.RELOAD_TRIPS);
       this._toasterService.showToast('success', 'Trip created Succesfully');
       this._router.navigate(['../'], { relativeTo: this._route });
     }
@@ -181,6 +188,8 @@ export class TripDetailComponent implements OnInit {
     this._store.dispatch(
       TripActions.updateTrip({ id: this.tripId, trip: payload })
     );
+
+    this._communicationService.sendMessage(CommunicationActions.RELOAD_TRIPS);
 
     this.tripForm.patchValue({
       status: TripStatus.PENDING_APPROVAL
@@ -205,6 +214,8 @@ export class TripDetailComponent implements OnInit {
     this._store.dispatch(
       TripActions.updateTrip({ id: this.tripId, trip: updatedTrip })
     );
+
+    this._communicationService.sendMessage(CommunicationActions.RELOAD_TRIPS);
 
     this.tripForm.patchValue({
       status: TripStatus.APPROVED
