@@ -64,6 +64,7 @@ export class TripDetailComponent implements OnInit {
     startDate: ['', [Validators.required]],
     endDate: ['', [Validators.required]],
     status: [{ value: '', disabled: true }, [Validators.required]],
+    financeStatus: [{ value: '', disabled: true }],
     totalExpense: [{ value: 0, disabled: true }],
     comment: [{ value: '', disabled: !this.isApprover }, [Validators.required]],
     expenses: this._fb.group({
@@ -126,6 +127,11 @@ export class TripDetailComponent implements OnInit {
             if (state.status === TripStatus.PENDING_APPROVAL) {
               this.tripForm.get('comment')?.enable();
               this.tripForm.get('comment')?.addValidators(Validators.required);
+            }
+            if (this.isFinancer && state.status === TripStatus.APPROVED) {
+              this.tripForm.get('financeStatus')?.enable();
+              this.tripForm.get('financeStatus')?.addValidators(Validators.required);
+              
             }
           })
         )
@@ -201,6 +207,10 @@ export class TripDetailComponent implements OnInit {
     this._toasterService.showToast('success', 'Trip approved successfully');
   }
 
+  onBack() {
+    this._router.navigate(['/trip/list']);
+  }
+
   private _calculateTotalExpense(trip: TripModel): number {
     const carRentalExpense = trip.expenses?.carRental?.totalPrice || 0;
     const hotelExpense = trip.expenses?.hotel?.totalPrice || 0;
@@ -208,9 +218,5 @@ export class TripDetailComponent implements OnInit {
     const taxiExpense = trip.expenses?.taxi?.totalPrice || 0;
 
     return carRentalExpense + hotelExpense + flightExpense + taxiExpense;
-  }
-
-  onBack() {
-    this._router.navigate(['/trip/list']);
   }
 }

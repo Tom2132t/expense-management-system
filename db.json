@@ -27,16 +27,23 @@
   ],
   "trips": [
     {
-      "id": "2",
       "name": "Vacation in Paris",
       "duration": "7 days",
-      "startDate": "2025-03-01",
+      "startDate": "2025-03-01T00:00:00.000Z",
       "endDate": "2025-03-07",
       "status": "approved",
-      "totalExpense": 3000,
+      "financeStatus": "refunded",
+      "totalExpense": 2900,
       "comment": "",
       "expenses": {
-        "carRental": {},
+        "carRental": {
+          "carName": "",
+          "pickUpDate": "",
+          "dropOffDate": "",
+          "pickUpLocation": "",
+          "dropOffLocation": "",
+          "totalPrice": 0
+        },
         "hotel": {
           "hotelName": "Le Meurice",
           "location": "Paris, France",
@@ -58,7 +65,8 @@
           "timeAndDate": "2025-03-02T07:00:00",
           "totalPrice": 100
         }
-      }
+      },
+      "id": "2"
     },
     {
       "id": "3",
@@ -67,6 +75,7 @@
       "startDate": "2025-03-01",
       "endDate": "2025-03-07",
       "status": "approved",
+      "financeStatus": "refunded",
       "totalExpense": 3000,
       "comment": "",
       "expenses": {
@@ -100,6 +109,7 @@
       "startDate": "2025-03-01T00:00:00.000Z",
       "endDate": "2025-03-07",
       "status": "approved",
+      "financeStatus": "refunded",
       "totalExpense": 2900,
       "comment": "",
       "expenses": {
@@ -136,16 +146,23 @@
       "id": "5"
     },
     {
-      "id": "6",
       "name": "Vacation in Paris",
       "duration": "7 days",
-      "startDate": "2025-03-01",
+      "startDate": "2025-03-01T00:00:00.000Z",
       "endDate": "2025-03-07",
       "status": "approved",
-      "totalExpense": 3000,
+      "financeStatus": "refunded",
+      "totalExpense": 2900,
       "comment": "",
       "expenses": {
-        "carRental": {},
+        "carRental": {
+          "carName": "",
+          "pickUpDate": "",
+          "dropOffDate": "",
+          "pickUpLocation": "",
+          "dropOffLocation": "",
+          "totalPrice": 0
+        },
         "hotel": {
           "hotelName": "Le Meurice",
           "location": "Paris, France",
@@ -167,7 +184,8 @@
           "timeAndDate": "2025-03-02T07:00:00",
           "totalPrice": 100
         }
-      }
+      },
+      "id": "6"
     },
     {
       "name": "Vacation in Paris",
@@ -175,6 +193,7 @@
       "startDate": "2025-03-01T00:00:00.000Z",
       "endDate": "2025-03-07",
       "status": "approved",
+      "financeStatus": "refunded",
       "totalExpense": 2900,
       "comment": "",
       "expenses": {
@@ -216,6 +235,7 @@
       "startDate": "2025-01-06T23:00:00.000Z",
       "endDate": "2025-01-11T23:00:00.000Z",
       "status": "approved",
+      "financeStatus": "refunded",
       "totalExpense": 0,
       "comment": "xasasas",
       "expenses": {
@@ -257,6 +277,7 @@
       "startDate": "2025-01-06T23:00:00.000Z",
       "endDate": "2025-01-11T23:00:00.000Z",
       "status": "approved",
+      "financeStatus": "refunded",
       "totalExpense": 0,
       "comment": "sasasas",
       "expenses": {
@@ -298,6 +319,7 @@
       "startDate": "2025-01-13T23:00:00.000Z",
       "endDate": "2025-01-20T23:00:00.000Z",
       "status": "draft",
+      "financeStatus": "refunded",
       "totalExpense": 0,
       "comment": "",
       "expenses": {
@@ -339,6 +361,7 @@
       "startDate": "2025-01-05T23:00:00.000Z",
       "endDate": "2025-01-14T23:00:00.000Z",
       "status": "approved",
+      "financeStatus": "refunded",
       "totalExpense": 0,
       "comment": "its okay",
       "expenses": {
@@ -380,6 +403,7 @@
       "startDate": "2025-01-20T23:00:00.000Z",
       "endDate": "2025-01-21T23:00:00.000Z",
       "status": "draft",
+      "financeStatus": "refunded",
       "totalExpense": 900,
       "comment": "",
       "expenses": {

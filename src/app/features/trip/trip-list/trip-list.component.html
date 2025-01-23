@@ -4,9 +4,11 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input />
   </mat-form-field>
   <div class="pb-4 pull-right">
-    <button mat-raised-button [routerLink]="['/trip/create']" *ngIf="isEndUser">
-      Create Trip
-    </button>
+    @if (isEndUser) {
+      <button mat-raised-button [routerLink]="['/trip/create']">
+        Create Trip
+      </button>
+    }
   </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <!-- Trip Name Column -->
