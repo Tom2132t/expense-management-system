@@ -1,0 +1,1258 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expense-management-system documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">expense-management-system documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#addTrip" title="src/app/store/trip/trip.actions.ts" ><b>addTrip</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addTripFailure" title="src/app/store/trip/trip.actions.ts" ><b>addTripFailure</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addTripSuccess" title="src/app/store/trip/trip.actions.ts" ><b>addTripSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appConfig" title="src/app/app.config.ts" ><b>appConfig</b>&nbsp;&nbsp;&nbsp;(src/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appEffects" title="src/app/store/app.effects.ts" ><b>appEffects</b>&nbsp;&nbsp;&nbsp;(src/.../app.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#canActivate" title="src/app/auth/guards/auth.guard.ts" ><b>canActivate</b>&nbsp;&nbsp;&nbsp;(src/.../auth.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#canActivateChild" title="src/app/auth/guards/auth.guard.ts" ><b>canActivateChild</b>&nbsp;&nbsp;&nbsp;(src/.../auth.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#canLoad" title="src/app/auth/guards/auth.guard.ts" ><b>canLoad</b>&nbsp;&nbsp;&nbsp;(src/.../auth.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteTrip" title="src/app/store/trip/trip.actions.ts" ><b>deleteTrip</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteTripFailure" title="src/app/store/trip/trip.actions.ts" ><b>deleteTripFailure</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteTripSuccess" title="src/app/store/trip/trip.actions.ts" ><b>deleteTripSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/app/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#httpResponseHandlerInterceptor" title="src/app/auth/interceptors/auth.interceptor.ts" ><b>httpResponseHandlerInterceptor</b>&nbsp;&nbsp;&nbsp;(src/.../auth.interceptor.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialState" title="src/app/store/trip/trip.reducer.ts" ><b>initialState</b>&nbsp;&nbsp;&nbsp;(src/.../trip.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadTripById" title="src/app/store/trip/trip.actions.ts" ><b>loadTripById</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadTripByIdFailure" title="src/app/store/trip/trip.actions.ts" ><b>loadTripByIdFailure</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadTripByIdSuccess" title="src/app/store/trip/trip.actions.ts" ><b>loadTripByIdSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadTrips" title="src/app/store/trip/trip.actions.ts" ><b>loadTrips</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadTripsFailure" title="src/app/store/trip/trip.actions.ts" ><b>loadTripsFailure</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadTripsSuccess" title="src/app/store/trip/trip.actions.ts" ><b>loadTripsSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LOGGED_USER" title="src/app/auth/auth.service.ts" ><b>LOGGED_USER</b>&nbsp;&nbsp;&nbsp;(src/.../auth.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LOGGED_USER_TOKEN" title="src/app/auth/auth.service.ts" ><b>LOGGED_USER_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../auth.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reducers" title="src/app/store/app.state.ts" ><b>reducers</b>&nbsp;&nbsp;&nbsp;(src/.../app.state.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectAllTrips" title="src/app/store/trip/trip.selectors.ts" ><b>selectAllTrips</b>&nbsp;&nbsp;&nbsp;(src/.../trip.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectApprovedTrips" title="src/app/store/trip/trip.selectors.ts" ><b>selectApprovedTrips</b>&nbsp;&nbsp;&nbsp;(src/.../trip.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectError" title="src/app/store/trip/trip.selectors.ts" ><b>selectError</b>&nbsp;&nbsp;&nbsp;(src/.../trip.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectLoading" title="src/app/store/trip/trip.selectors.ts" ><b>selectLoading</b>&nbsp;&nbsp;&nbsp;(src/.../trip.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectSelectedTrip" title="src/app/store/trip/trip.selectors.ts" ><b>selectSelectedTrip</b>&nbsp;&nbsp;&nbsp;(src/.../trip.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectTripById" title="src/app/store/trip/trip.selectors.ts" ><b>selectTripById</b>&nbsp;&nbsp;&nbsp;(src/.../trip.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectTripState" title="src/app/store/trip/trip.selectors.ts" ><b>selectTripState</b>&nbsp;&nbsp;&nbsp;(src/.../trip.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#tripReducer" title="src/app/store/trip/trip.reducer.ts" ><b>tripReducer</b>&nbsp;&nbsp;&nbsp;(src/.../trip.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#updateTrip" title="src/app/store/trip/trip.actions.ts" ><b>updateTrip</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#updateTripFailure" title="src/app/store/trip/trip.actions.ts" ><b>updateTripFailure</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#updateTripSuccess" title="src/app/store/trip/trip.actions.ts" ><b>updateTripSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../trip.actions.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/store/trip/trip.actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addTrip"></a>
+                    <span class="name">
+                        <span ><b>addTrip</b></span>
+                        <a href="#addTrip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Add Trip&#x27;,
+  props&lt;{ trip: TripModel }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addTripFailure"></a>
+                    <span class="name">
+                        <span ><b>addTripFailure</b></span>
+                        <a href="#addTripFailure"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Add Trip Failure&#x27;,
+  props&lt;{ error: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addTripSuccess"></a>
+                    <span class="name">
+                        <span ><b>addTripSuccess</b></span>
+                        <a href="#addTripSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Add Trip Success&#x27;,
+  props&lt;{ trip: TripModel }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTrip"></a>
+                    <span class="name">
+                        <span ><b>deleteTrip</b></span>
+                        <a href="#deleteTrip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Delete Trip&#x27;,
+  props&lt;{ id: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTripFailure"></a>
+                    <span class="name">
+                        <span ><b>deleteTripFailure</b></span>
+                        <a href="#deleteTripFailure"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Delete Trip Failure&#x27;,
+  props&lt;{ error: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTripSuccess"></a>
+                    <span class="name">
+                        <span ><b>deleteTripSuccess</b></span>
+                        <a href="#deleteTripSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Delete Trip Success&#x27;,
+  props&lt;{ id: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTripById"></a>
+                    <span class="name">
+                        <span ><b>loadTripById</b></span>
+                        <a href="#loadTripById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip API] Load Trip By ID&#x27;,
+  props&lt;{ id: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTripByIdFailure"></a>
+                    <span class="name">
+                        <span ><b>loadTripByIdFailure</b></span>
+                        <a href="#loadTripByIdFailure"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip API] Load Trip By ID Failure&#x27;,
+  props&lt;{ error: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTripByIdSuccess"></a>
+                    <span class="name">
+                        <span ><b>loadTripByIdSuccess</b></span>
+                        <a href="#loadTripByIdSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip API] Load Trip By ID Success&#x27;,
+  props&lt;{ trip: TripModel }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTrips"></a>
+                    <span class="name">
+                        <span ><b>loadTrips</b></span>
+                        <a href="#loadTrips"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[Trip] Load Trips&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTripsFailure"></a>
+                    <span class="name">
+                        <span ><b>loadTripsFailure</b></span>
+                        <a href="#loadTripsFailure"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Load Trips Failure&#x27;,
+  props&lt;{ error: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadTripsSuccess"></a>
+                    <span class="name">
+                        <span ><b>loadTripsSuccess</b></span>
+                        <a href="#loadTripsSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Load Trips Success&#x27;,
+  props&lt;{ trips: TripModel[] }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTrip"></a>
+                    <span class="name">
+                        <span ><b>updateTrip</b></span>
+                        <a href="#updateTrip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Update Trip&#x27;,
+  props&lt;{ id: string; trip: TripModel }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTripFailure"></a>
+                    <span class="name">
+                        <span ><b>updateTripFailure</b></span>
+                        <a href="#updateTripFailure"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Update Trip Failure&#x27;,
+  props&lt;{ error: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTripSuccess"></a>
+                    <span class="name">
+                        <span ><b>updateTripSuccess</b></span>
+                        <a href="#updateTripSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[Trip] Update Trip Success&#x27;,
+  props&lt;{ trip: TripModel }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/app.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appConfig"></a>
+                    <span class="name">
+                        <span ><b>appConfig</b></span>
+                        <a href="#appConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(withFetch()),
+    provideStore(reducers),
+    provideEffects(appEffects),
+    provideStoreDevtools({ maxAge: 25, logOnly: false }),
+    provideAnimationsAsync()
+  ]
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/app.effects.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appEffects"></a>
+                    <span class="name">
+                        <span ><b>appEffects</b></span>
+                        <a href="#appEffects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[TripEffects]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/auth/guards/auth.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canActivate"></a>
+                    <span class="name">
+                        <span ><b>canActivate</b></span>
+                        <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const authService &#x3D; inject(AuthService);
+  const router &#x3D; inject(Router);
+
+  if (!authService.isLoggedIn) {
+    router.navigate([&#x27;/login&#x27;]);
+    return false;
+  }
+
+  return true;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canActivateChild"></a>
+                    <span class="name">
+                        <span ><b>canActivateChild</b></span>
+                        <a href="#canActivateChild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route: ActivatedRouteSnapshot) &#x3D;&gt; {
+  const authService &#x3D; inject(AuthService);
+  const router &#x3D; inject(Router);
+
+  const roles &#x3D; route.data[&#x27;roles&#x27;] as string[];
+
+  if (authService.isLoggedIn &amp;&amp; authService.user) {
+    if (roles.includes(authService.user.role)) {
+      return true;
+    } else {
+      router.navigate([&#x27;/unauthorized&#x27;]);
+      return false;
+    }
+  } else {
+    router.navigate([&#x27;/login&#x27;]);
+    return false;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canLoad"></a>
+                    <span class="name">
+                        <span ><b>canLoad</b></span>
+                        <a href="#canLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const authService &#x3D; inject(AuthService);
+  const router &#x3D; inject(Router);
+
+  if (authService.isLoggedIn &amp;&amp; authService.user?.role) {
+    return true;
+  } else {
+    router.navigate([&#x27;/unauthorized&#x27;]);
+    return false;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/environment.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  baseUrl: &#x27;http://localhost:3000&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/auth/interceptors/auth.interceptor.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="httpResponseHandlerInterceptor"></a>
+                    <span class="name">
+                        <span ><b>httpResponseHandlerInterceptor</b></span>
+                        <a href="#httpResponseHandlerInterceptor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HttpInterceptorFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(
+  req,
+  next
+) &#x3D;&gt; {
+  const authService &#x3D; inject(AuthService);
+
+  const authReq &#x3D; req.clone({
+    headers: req.headers
+      .set(&#x27;Access-Control-Allow-Origin&#x27;, &#x27;*&#x27;)
+      .set(&#x27;Authorization&#x27;, &#x60;Bearer ${authService.token ?? &#x27;&#x27;}&#x60;)
+  });
+
+  return next(authReq).pipe(
+    tap({
+      next: (response) &#x3D;&gt; {
+        console.log(&#x27;HTTP request successful&#x27;, response);
+      },
+      error: (error) &#x3D;&gt; {
+        if (error instanceof HttpErrorResponse) {
+          switch (error.status) {
+            case 401:
+              console.error(&#x27;Session expired. Please log in again.&#x27;);
+              authService.logout();
+              break;
+            case 403:
+              console.error(
+                &#x27;You do not have permission to access this resource.&#x27;
+              );
+              break;
+            case 500:
+              console.error(
+                &#x27;An unexpected error occurred on the server. Please try again later.&#x27;
+              );
+              break;
+            default:
+              console.error(
+                &#x60;Unhandled HTTP error: ${error.status} - ${error.message}&#x60;
+              );
+              break;
+          }
+        }
+      }
+    })
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/trip/trip.reducer.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialState"></a>
+                    <span class="name">
+                        <span ><b>initialState</b></span>
+                        <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TripState.html" target="_self" >TripState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  trips: [],
+  selectedTrip: null,
+  loading: false,
+  error: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tripReducer"></a>
+                    <span class="name">
+                        <span ><b>tripReducer</b></span>
+                        <a href="#tripReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+  initialState,
+  on(TripActions.loadTrips, (state) &#x3D;&gt; ({ ...state, loading: true })),
+  on(TripActions.loadTripsSuccess, (state, { trips }) &#x3D;&gt; ({
+    ...state,
+    loading: false,
+    trips
+  })),
+  on(TripActions.loadTripsFailure, (state, { error }) &#x3D;&gt; ({
+    ...state,
+    loading: false,
+    error
+  })),
+  on(TripActions.addTripSuccess, (state, { trip }) &#x3D;&gt; ({
+    ...state,
+    trips: [...state.trips, trip]
+  })),
+  on(TripActions.updateTripSuccess, (state, { trip }) &#x3D;&gt; ({
+    ...state,
+    trips: state.trips.map((t) &#x3D;&gt; (t.id &#x3D;&#x3D;&#x3D; trip.id ? trip : t))
+  })),
+  on(TripActions.deleteTripSuccess, (state, { id }) &#x3D;&gt; ({
+    ...state,
+    trips: state.trips.filter((t) &#x3D;&gt; t.id !&#x3D;&#x3D; id)
+  })),
+  on(TripActions.loadTripById, (state) &#x3D;&gt; ({
+    ...state,
+    loading: true,
+    error: null
+  })),
+  on(TripActions.loadTripByIdSuccess, (state, { trip }) &#x3D;&gt; ({
+    ...state,
+    trips: [...state.trips.filter((t) &#x3D;&gt; t.id !&#x3D;&#x3D; trip.id), trip],
+  })),
+  on(TripActions.loadTripByIdFailure, (state, { error }) &#x3D;&gt; ({
+    ...state,
+    selectedTrip: null,
+    loading: false,
+    error
+  }))
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/auth/auth.service.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LOGGED_USER"></a>
+                    <span class="name">
+                        <span ><b>LOGGED_USER</b></span>
+                        <a href="#LOGGED_USER"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;blog:user&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LOGGED_USER_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>LOGGED_USER_TOKEN</b></span>
+                        <a href="#LOGGED_USER_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;blog:token&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/app.state.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reducers"></a>
+                    <span class="name">
+                        <span ><b>reducers</b></span>
+                        <a href="#reducers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AppState.html" target="_self" >ActionReducerMap&lt;AppState&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  trip: tripReducer
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/store/trip/trip.selectors.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectAllTrips"></a>
+                    <span class="name">
+                        <span ><b>selectAllTrips</b></span>
+                        <a href="#selectAllTrips"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+  selectTripState,
+  (state) &#x3D;&gt; state.trips || []
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectApprovedTrips"></a>
+                    <span class="name">
+                        <span ><b>selectApprovedTrips</b></span>
+                        <a href="#selectApprovedTrips"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(selectAllTrips, (trips) &#x3D;&gt;
+  trips.filter((trip) &#x3D;&gt; trip.status &#x3D;&#x3D;&#x3D; TripStatus.APPROVED)
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectError"></a>
+                    <span class="name">
+                        <span ><b>selectError</b></span>
+                        <a href="#selectError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+  selectTripState,
+  (state) &#x3D;&gt; state.error
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectLoading"></a>
+                    <span class="name">
+                        <span ><b>selectLoading</b></span>
+                        <a href="#selectLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+  selectTripState,
+  (state) &#x3D;&gt; state.loading
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectSelectedTrip"></a>
+                    <span class="name">
+                        <span ><b>selectSelectedTrip</b></span>
+                        <a href="#selectSelectedTrip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+  selectTripState,
+  (state) &#x3D;&gt; state.selectedTrip
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectTripById"></a>
+                    <span class="name">
+                        <span ><b>selectTripById</b></span>
+                        <a href="#selectTripById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(id: string) &#x3D;&gt;
+  createSelector(selectTripState, (trips) &#x3D;&gt; {
+    return trips.trips.find((trip) &#x3D;&gt; trip.id &#x3D;&#x3D;&#x3D; id) || null;
+  })</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectTripState"></a>
+                    <span class="name">
+                        <span ><b>selectTripState</b></span>
+                        <a href="#selectTripState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;TripState&gt;(&#x27;trip&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

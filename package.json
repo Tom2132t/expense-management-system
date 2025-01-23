@@ -10,7 +10,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "compodoc:build": "compodoc -p tsconfig.doc.json",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
+    "compodoc:serve": "compodoc -s"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +41,7 @@
     "@angular-eslint/schematics": "^19.0.2",
     "@angular/cli": "^17.3.11",
     "@angular/compiler-cli": "^17.3.0",
+    "@compodoc/compodoc": "^1.1.26",
     "@eslint/js": "^9.18.0",
     "@types/jasmine": "~5.1.0",
     "daisyui": "^4.12.23",

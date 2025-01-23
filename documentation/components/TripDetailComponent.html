@@ -1,0 +1,1742 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expense-management-system documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">expense-management-system documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  TripDetailComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/trip/trip-detail/trip-detail.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-trip-detail</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>MatFormFieldModule</code>
+                            <code>MatInputModule</code>
+                            <code>MatSelectModule</code>
+                            <code>MatButtonModule</code>
+                            <code>MatIconModule</code>
+                            <code>MatDatepickerModule</code>
+                            <code>MatNativeDateModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./trip-detail.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./trip-detail.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_authService" >_authService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_communicationService" >_communicationService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_fb" >_fb</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_route" >_route</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_router" >_router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_store" >_store</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_toasterService" >_toasterService</a>
+                            </li>
+                            <li>
+                                <a href="#isApprover" >isApprover</a>
+                            </li>
+                            <li>
+                                <a href="#isDraft" >isDraft</a>
+                            </li>
+                            <li>
+                                <a href="#isEndUser" >isEndUser</a>
+                            </li>
+                            <li>
+                                <a href="#isFinancer" >isFinancer</a>
+                            </li>
+                            <li>
+                                <a href="#isTripApproved" >isTripApproved</a>
+                            </li>
+                            <li>
+                                <a href="#isTripSentForApproval" >isTripSentForApproval</a>
+                            </li>
+                            <li>
+                                <a href="#trip$" >trip$</a>
+                            </li>
+                            <li>
+                                <a href="#tripForm" >tripForm</a>
+                            </li>
+                            <li>
+                                <a href="#tripId" >tripId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_calculateTotalExpense" >_calculateTotalExpense</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onApproveTrip" >onApproveTrip</a>
+                            </li>
+                            <li>
+                                <a href="#onBack" >onBack</a>
+                            </li>
+                            <li>
+                                <a href="#onSendForApproval" >onSendForApproval</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_calculateTotalExpense"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_calculateTotalExpense</b></span>
+                        <a href="#_calculateTotalExpense"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_calculateTotalExpense(trip: <a href="../interfaces/TripModel.html" target="_self">TripModel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="233"
+                                    class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>trip</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TripModel.html" target="_self" >TripModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onApproveTrip"></a>
+                    <span class="name">
+                        <span ><b>onApproveTrip</b></span>
+                        <a href="#onApproveTrip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onApproveTrip()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onBack"></a>
+                    <span class="name">
+                        <span ><b>onBack</b></span>
+                        <a href="#onBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSendForApproval"></a>
+                    <span class="name">
+                        <span ><b>onSendForApproval</b></span>
+                        <a href="#onSendForApproval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSendForApproval()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="180"
+                                    class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:180</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_authService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_authService</b></span>
+                        <a href="#_authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_communicationService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_communicationService</b></span>
+                        <a href="#_communicationService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(CommunicationService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_fb"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_fb</b></span>
+                        <a href="#_fb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_route"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_route</b></span>
+                        <a href="#_route"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ActivatedRoute)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_router</b></span>
+                        <a href="#_router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_store"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_store</b></span>
+                        <a href="#_store"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Store)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_toasterService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_toasterService</b></span>
+                        <a href="#_toasterService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ToastService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isApprover"></a>
+                    <span class="name">
+                        <span ><b>isApprover</b></span>
+                        <a href="#isApprover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._authService.user?.role &#x3D;&#x3D;&#x3D; Role.APPROVER</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDraft"></a>
+                    <span class="name">
+                        <span ><b>isDraft</b></span>
+                        <a href="#isDraft"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEndUser"></a>
+                    <span class="name">
+                        <span ><b>isEndUser</b></span>
+                        <a href="#isEndUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._authService.user?.role &#x3D;&#x3D;&#x3D; Role.END_USER</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFinancer"></a>
+                    <span class="name">
+                        <span ><b>isFinancer</b></span>
+                        <a href="#isFinancer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._authService.user?.role &#x3D;&#x3D;&#x3D; Role.FINANCE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isTripApproved"></a>
+                    <span class="name">
+                        <span ><b>isTripApproved</b></span>
+                        <a href="#isTripApproved"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isTripSentForApproval"></a>
+                    <span class="name">
+                        <span ><b>isTripSentForApproval</b></span>
+                        <a href="#isTripSentForApproval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trip$"></a>
+                    <span class="name">
+                        <span ><b>trip$</b></span>
+                        <a href="#trip$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TripModel.html" target="_self" >Observable&lt;TripModel&gt; | Subscription</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tripForm"></a>
+                    <span class="name">
+                        <span ><b>tripForm</b></span>
+                        <a href="#tripForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._fb.group({
+    name: [&#x27;&#x27;, [Validators.required]],
+    duration: [&#x27;&#x27;, [Validators.required]],
+    startDate: [&#x27;&#x27;, [Validators.required]],
+    endDate: [&#x27;&#x27;, [Validators.required]],
+    status: [{ value: &#x27;&#x27;, disabled: true }, [Validators.required]],
+    financeStatus: [{ value: &#x27;&#x27;, disabled: true }],
+    totalExpense: [{ value: 0, disabled: true }],
+    comment: [{ value: &#x27;&#x27;, disabled: !this.isApprover }, [Validators.required]],
+    expenses: this._fb.group({
+      carRental: this._fb.group({
+        carName: [&#x27;&#x27;],
+        pickUpDate: [&#x27;&#x27;],
+        dropOffDate: [&#x27;&#x27;],
+        pickUpLocation: [&#x27;&#x27;],
+        dropOffLocation: [&#x27;&#x27;],
+        totalPrice: [0]
+      }),
+      hotel: this._fb.group({
+        hotelName: [&#x27;&#x27;],
+        location: [&#x27;&#x27;],
+        checkInDate: [&#x27;&#x27;],
+        checkOutDate: [&#x27;&#x27;],
+        totalPrice: [0]
+      }),
+      flight: this._fb.group({
+        airline: [&#x27;&#x27;],
+        from: [&#x27;&#x27;],
+        to: [&#x27;&#x27;],
+        departureDate: [&#x27;&#x27;],
+        arrivalDate: [&#x27;&#x27;],
+        totalPrice: [0]
+      }),
+      taxi: this._fb.group({
+        from: [&#x27;&#x27;],
+        to: [&#x27;&#x27;],
+        timeAndDate: [&#x27;&#x27;],
+        totalPrice: [0]
+      })
+    })
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tripId"></a>
+                    <span class="name">
+                        <span ><b>tripId</b></span>
+                        <a href="#tripId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/features/trip/trip-detail/trip-detail.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Component, inject, OnInit } from &#x27;@angular/core&#x27;;
+import {
+  FormGroup,
+  FormBuilder,
+  ReactiveFormsModule,
+  Validators
+} from &#x27;@angular/forms&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { filter, Observable, Subscription, tap } from &#x27;rxjs&#x27;;
+import { TripModel } from &#x27;../../../shared/models/trip.model&#x27;;
+import { selectTripById } from &#x27;../../../store/trip/trip.selectors&#x27;;
+import * as TripActions from &#x27;../../../store/trip/trip.actions&#x27;;
+import { MatFormFieldModule } from &#x27;@angular/material/form-field&#x27;;
+import { MatInputModule } from &#x27;@angular/material/input&#x27;;
+import { MatSelectModule } from &#x27;@angular/material/select&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { MatIconModule } from &#x27;@angular/material/icon&#x27;;
+import { MatDatepickerModule } from &#x27;@angular/material/datepicker&#x27;;
+import { MatNativeDateModule } from &#x27;@angular/material/core&#x27;;
+import { ToastService } from &#x27;../../../core/services/toaster.service&#x27;;
+import { AuthService } from &#x27;../../../auth/auth.service&#x27;;
+import { Role } from &#x27;../../../shared/enums/role.enum&#x27;;
+import { TripStatus } from &#x27;../../../shared/enums/trip-status.enum&#x27;;
+import {
+  CommunicationActions,
+  CommunicationService
+} from &#x27;../../../core/services/communication.service&#x27;;
+
+@Component({
+  selector: &#x27;app-trip-detail&#x27;,
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
+  templateUrl: &#x27;./trip-detail.component.html&#x27;,
+  styleUrl: &#x27;./trip-detail.component.scss&#x27;
+})
+export class TripDetailComponent implements OnInit {
+  trip$!: Observable&lt;TripModel&gt; | Subscription;
+  tripId!: string;
+
+  private _route &#x3D; inject(ActivatedRoute);
+  private _store &#x3D; inject(Store);
+  private _fb &#x3D; inject(FormBuilder);
+  private _toasterService &#x3D; inject(ToastService);
+  private _router &#x3D; inject(Router);
+  private _authService &#x3D; inject(AuthService);
+  private _communicationService &#x3D; inject(CommunicationService);
+
+  isApprover &#x3D; this._authService.user?.role &#x3D;&#x3D;&#x3D; Role.APPROVER;
+  isFinancer &#x3D; this._authService.user?.role &#x3D;&#x3D;&#x3D; Role.FINANCE;
+  isEndUser &#x3D; this._authService.user?.role &#x3D;&#x3D;&#x3D; Role.END_USER;
+  isTripSentForApproval: boolean &#x3D; false;
+  isTripApproved: boolean &#x3D; false;
+  isDraft: boolean &#x3D; false;
+
+  tripForm: FormGroup &#x3D; this._fb.group({
+    name: [&#x27;&#x27;, [Validators.required]],
+    duration: [&#x27;&#x27;, [Validators.required]],
+    startDate: [&#x27;&#x27;, [Validators.required]],
+    endDate: [&#x27;&#x27;, [Validators.required]],
+    status: [{ value: &#x27;&#x27;, disabled: true }, [Validators.required]],
+    financeStatus: [{ value: &#x27;&#x27;, disabled: true }],
+    totalExpense: [{ value: 0, disabled: true }],
+    comment: [{ value: &#x27;&#x27;, disabled: !this.isApprover }, [Validators.required]],
+    expenses: this._fb.group({
+      carRental: this._fb.group({
+        carName: [&#x27;&#x27;],
+        pickUpDate: [&#x27;&#x27;],
+        dropOffDate: [&#x27;&#x27;],
+        pickUpLocation: [&#x27;&#x27;],
+        dropOffLocation: [&#x27;&#x27;],
+        totalPrice: [0]
+      }),
+      hotel: this._fb.group({
+        hotelName: [&#x27;&#x27;],
+        location: [&#x27;&#x27;],
+        checkInDate: [&#x27;&#x27;],
+        checkOutDate: [&#x27;&#x27;],
+        totalPrice: [0]
+      }),
+      flight: this._fb.group({
+        airline: [&#x27;&#x27;],
+        from: [&#x27;&#x27;],
+        to: [&#x27;&#x27;],
+        departureDate: [&#x27;&#x27;],
+        arrivalDate: [&#x27;&#x27;],
+        totalPrice: [0]
+      }),
+      taxi: this._fb.group({
+        from: [&#x27;&#x27;],
+        to: [&#x27;&#x27;],
+        timeAndDate: [&#x27;&#x27;],
+        totalPrice: [0]
+      })
+    })
+  });
+
+  ngOnInit(): void {
+    const id &#x3D; this._route.snapshot.paramMap.get(&#x27;TRIP_ID&#x27;);
+
+    if (id) {
+      this._store.dispatch(TripActions.loadTripById({ id }));
+      this.tripId &#x3D; id;
+
+      this.trip$ &#x3D; this._store
+        .select(selectTripById(id || &#x27;&#x27;))
+        .pipe(
+          filter((state): state is TripModel &#x3D;&gt; !!state),
+          tap((state) &#x3D;&gt; {
+            this.tripForm.patchValue(state);
+
+            this.isTripSentForApproval &#x3D;
+              state.status &#x3D;&#x3D;&#x3D; TripStatus.PENDING_APPROVAL;
+            this.isTripApproved &#x3D; state.status &#x3D;&#x3D;&#x3D; TripStatus.APPROVED;
+            this.isDraft &#x3D; state.status &#x3D;&#x3D;&#x3D; TripStatus.DRAFT;
+
+            if (
+              (state.id &amp;&amp; state.status &#x3D;&#x3D;&#x3D; TripStatus.APPROVED) ||
+              state.status &#x3D;&#x3D;&#x3D; TripStatus.PENDING_APPROVAL
+            ) {
+              this.tripForm.disable();
+            }
+            if (
+              state.status &#x3D;&#x3D;&#x3D; TripStatus.PENDING_APPROVAL &amp;&amp;
+              this.isApprover
+            ) {
+              this.tripForm.get(&#x27;comment&#x27;)?.enable();
+              this.tripForm.get(&#x27;comment&#x27;)?.addValidators(Validators.required);
+            }
+            if (this.isFinancer &amp;&amp; state.status &#x3D;&#x3D;&#x3D; TripStatus.APPROVED) {
+              this.tripForm.get(&#x27;financeStatus&#x27;)?.enable();
+              this.tripForm
+                .get(&#x27;financeStatus&#x27;)
+                ?.addValidators(Validators.required);
+            }
+          })
+        )
+        .subscribe();
+    }
+  }
+
+  onSubmit(): void {
+    if (this.tripForm.invalid) {
+      return;
+    }
+
+    const tripData &#x3D; this.tripForm.getRawValue();
+
+    const payload &#x3D; {
+      ...tripData,
+      totalExpense: this._calculateTotalExpense(tripData),
+      status: tripData.status || &#x27;draft&#x27;
+    };
+
+    if (this.tripId) {
+      this._store.dispatch(
+        TripActions.updateTrip({ id: this.tripId, trip: payload })
+      );
+      this._communicationService.sendMessage(CommunicationActions.RELOAD_TRIPS);
+      this._toasterService.showToast(&#x27;success&#x27;, &#x27;Trip Updated Succesfully&#x27;);
+    } else {
+      this._store.dispatch(TripActions.addTrip({ trip: payload }));
+      this._communicationService.sendMessage(CommunicationActions.RELOAD_TRIPS);
+      this._toasterService.showToast(&#x27;success&#x27;, &#x27;Trip created Succesfully&#x27;);
+      this._router.navigate([&#x27;../&#x27;], { relativeTo: this._route });
+    }
+  }
+
+  onSendForApproval(): void {
+    const tripData &#x3D; this.tripForm.getRawValue();
+    const payload &#x3D; {
+      ...tripData,
+      totalExpense: this._calculateTotalExpense(tripData),
+      status: TripStatus.PENDING_APPROVAL
+    };
+
+    this._store.dispatch(
+      TripActions.updateTrip({ id: this.tripId, trip: payload })
+    );
+
+    this._communicationService.sendMessage(CommunicationActions.RELOAD_TRIPS);
+
+    this.tripForm.patchValue({
+      status: TripStatus.PENDING_APPROVAL
+    });
+
+    this.tripForm.disable();
+    this.isTripSentForApproval &#x3D; true;
+    this.isDraft &#x3D; false;
+    this._toasterService.showToast(
+      &#x27;success&#x27;,
+      &#x27;Trip sent for approval successfully&#x27;
+    );
+  }
+
+  onApproveTrip(): void {
+    const form &#x3D; this.tripForm.getRawValue();
+    const updatedTrip &#x3D; {
+      ...form,
+      status: TripStatus.APPROVED
+    };
+
+    this._store.dispatch(
+      TripActions.updateTrip({ id: this.tripId, trip: updatedTrip })
+    );
+
+    this._communicationService.sendMessage(CommunicationActions.RELOAD_TRIPS);
+
+    this.tripForm.patchValue({
+      status: TripStatus.APPROVED
+    });
+
+    this.tripForm.disable();
+    this.isTripApproved &#x3D; true;
+    this._toasterService.showToast(&#x27;success&#x27;, &#x27;Trip approved successfully&#x27;);
+  }
+
+  onBack() {
+    this._router.navigate([&#x27;/trip/list&#x27;]);
+  }
+
+  private _calculateTotalExpense(trip: TripModel): number {
+    const carRentalExpense &#x3D; trip.expenses?.carRental?.totalPrice || 0;
+    const hotelExpense &#x3D; trip.expenses?.hotel?.totalPrice || 0;
+    const flightExpense &#x3D; trip.expenses?.flight?.totalPrice || 0;
+    const taxiExpense &#x3D; trip.expenses?.taxi?.totalPrice || 0;
+
+    return carRentalExpense + hotelExpense + flightExpense + taxiExpense;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;form [formGroup]&#x3D;&quot;tripForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+    &lt;!-- General Trip Information --&gt;
+    &lt;div class&#x3D;&quot;section&quot;&gt;
+      &lt;h2&gt;Trip Details&lt;/h2&gt;
+
+      &lt;mat-form-field&gt;
+        &lt;mat-label&gt;Trip Name&lt;/mat-label&gt;
+        &lt;input matInput formControlName&#x3D;&quot;name&quot; /&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;mat-form-field&gt;
+        &lt;mat-label&gt;Duration&lt;/mat-label&gt;
+        &lt;input matInput formControlName&#x3D;&quot;duration&quot; /&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;mat-form-field&gt;
+        &lt;mat-label&gt;Start Date&lt;/mat-label&gt;
+        &lt;input
+          matInput
+          [matDatepicker]&#x3D;&quot;startDatePicker&quot;
+          formControlName&#x3D;&quot;startDate&quot;
+        /&gt;
+        &lt;mat-datepicker-toggle
+          matSuffix
+          [for]&#x3D;&quot;startDatePicker&quot;
+        &gt;&lt;/mat-datepicker-toggle&gt;
+        &lt;mat-datepicker #startDatePicker&gt;&lt;/mat-datepicker&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;mat-form-field&gt;
+        &lt;mat-label&gt;End Date&lt;/mat-label&gt;
+        &lt;input
+          matInput
+          [matDatepicker]&#x3D;&quot;endDatePicker&quot;
+          formControlName&#x3D;&quot;endDate&quot;
+        /&gt;
+        &lt;mat-datepicker-toggle
+          matSuffix
+          [for]&#x3D;&quot;endDatePicker&quot;
+        &gt;&lt;/mat-datepicker-toggle&gt;
+        &lt;mat-datepicker #endDatePicker&gt;&lt;/mat-datepicker&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;mat-form-field&gt;
+        &lt;mat-label&gt;Status&lt;/mat-label&gt;
+        &lt;mat-select formControlName&#x3D;&quot;status&quot;&gt;
+          &lt;mat-option value&#x3D;&quot;draft&quot;&gt;Draft&lt;/mat-option&gt;
+          &lt;mat-option value&#x3D;&quot;pending-approval&quot;&gt;Pending Approval&lt;/mat-option&gt;
+          &lt;mat-option value&#x3D;&quot;approved&quot;&gt;Approved&lt;/mat-option&gt;
+          &lt;mat-option value&#x3D;&quot;canceled&quot;&gt;Canceled&lt;/mat-option&gt;
+        &lt;/mat-select&gt;
+      &lt;/mat-form-field&gt;
+
+      &lt;mat-form-field&gt;
+        &lt;mat-label&gt;Total Expense&lt;/mat-label&gt;
+        &lt;input matInput type&#x3D;&quot;number&quot; formControlName&#x3D;&quot;totalExpense&quot; /&gt;
+      &lt;/mat-form-field&gt;
+    &lt;/div&gt;
+
+    &lt;mat-form-field&gt;
+      &lt;mat-label&gt;Finance Status&lt;/mat-label&gt;
+      &lt;mat-select formControlName&#x3D;&quot;financeStatus&quot;&gt;
+        &lt;mat-option value&#x3D;&quot;refunded&quot;&gt;Refunded&lt;/mat-option&gt;
+        &lt;mat-option value&#x3D;&quot;in-process&quot;&gt;In Process&lt;/mat-option&gt;
+      &lt;/mat-select&gt;
+    &lt;/mat-form-field&gt;
+
+    &lt;div formGroupName&#x3D;&quot;expenses&quot;&gt;
+      &lt;!-- Car Rental Section --&gt;
+      &lt;div class&#x3D;&quot;section&quot;&gt;
+        &lt;h2&gt;Car Rental&lt;/h2&gt;
+        &lt;div formGroupName&#x3D;&quot;carRental&quot;&gt;
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Car Name&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;carName&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Pick-Up Date&lt;/mat-label&gt;
+            &lt;input
+              matInput
+              [matDatepicker]&#x3D;&quot;pickUpPicker&quot;
+              formControlName&#x3D;&quot;pickUpDate&quot;
+            /&gt;
+            &lt;mat-datepicker-toggle
+              matSuffix
+              [for]&#x3D;&quot;pickUpPicker&quot;
+            &gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker #pickUpPicker&gt;&lt;/mat-datepicker&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Drop-Off Date&lt;/mat-label&gt;
+            &lt;input
+              matInput
+              [matDatepicker]&#x3D;&quot;dropOffPicker&quot;
+              formControlName&#x3D;&quot;dropOffDate&quot;
+            /&gt;
+            &lt;mat-datepicker-toggle
+              matSuffix
+              [for]&#x3D;&quot;dropOffPicker&quot;
+            &gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker #dropOffPicker&gt;&lt;/mat-datepicker&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Pick-Up Location&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;pickUpLocation&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Drop-Off Location&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;dropOffLocation&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Total Price&lt;/mat-label&gt;
+            &lt;input matInput type&#x3D;&quot;number&quot; formControlName&#x3D;&quot;totalPrice&quot; /&gt;
+          &lt;/mat-form-field&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Hotel Section --&gt;
+      &lt;div class&#x3D;&quot;section&quot;&gt;
+        &lt;h2&gt;Hotel&lt;/h2&gt;
+        &lt;div formGroupName&#x3D;&quot;hotel&quot;&gt;
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Hotel Name&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;hotelName&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Location&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;location&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Check-In Date&lt;/mat-label&gt;
+            &lt;input
+              matInput
+              [matDatepicker]&#x3D;&quot;checkInPicker&quot;
+              formControlName&#x3D;&quot;checkInDate&quot;
+            /&gt;
+            &lt;mat-datepicker-toggle
+              matSuffix
+              [for]&#x3D;&quot;checkInPicker&quot;
+            &gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker #checkInPicker&gt;&lt;/mat-datepicker&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Check-Out Date&lt;/mat-label&gt;
+            &lt;input
+              matInput
+              [matDatepicker]&#x3D;&quot;checkOutPicker&quot;
+              formControlName&#x3D;&quot;checkOutDate&quot;
+            /&gt;
+            &lt;mat-datepicker-toggle
+              matSuffix
+              [for]&#x3D;&quot;checkOutPicker&quot;
+            &gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker #checkOutPicker&gt;&lt;/mat-datepicker&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Total Price&lt;/mat-label&gt;
+            &lt;input matInput type&#x3D;&quot;number&quot; formControlName&#x3D;&quot;totalPrice&quot; /&gt;
+          &lt;/mat-form-field&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Flight Section --&gt;
+      &lt;div class&#x3D;&quot;section&quot;&gt;
+        &lt;h2&gt;Flight&lt;/h2&gt;
+        &lt;div formGroupName&#x3D;&quot;flight&quot;&gt;
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Airline&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;airline&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;From&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;from&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;To&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;to&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Departure Date&lt;/mat-label&gt;
+            &lt;input
+              matInput
+              [matDatepicker]&#x3D;&quot;departurePicker&quot;
+              formControlName&#x3D;&quot;departureDate&quot;
+            /&gt;
+            &lt;mat-datepicker-toggle
+              matSuffix
+              [for]&#x3D;&quot;departurePicker&quot;
+            &gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker #departurePicker&gt;&lt;/mat-datepicker&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Arrival Date&lt;/mat-label&gt;
+            &lt;input
+              matInput
+              [matDatepicker]&#x3D;&quot;arrivalPicker&quot;
+              formControlName&#x3D;&quot;arrivalDate&quot;
+            /&gt;
+            &lt;mat-datepicker-toggle
+              matSuffix
+              [for]&#x3D;&quot;arrivalPicker&quot;
+            &gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker #arrivalPicker&gt;&lt;/mat-datepicker&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Total Price&lt;/mat-label&gt;
+            &lt;input matInput type&#x3D;&quot;number&quot; formControlName&#x3D;&quot;totalPrice&quot; /&gt;
+          &lt;/mat-form-field&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Taxi Section --&gt;
+      &lt;div class&#x3D;&quot;section&quot;&gt;
+        &lt;h2&gt;Taxi&lt;/h2&gt;
+        &lt;div formGroupName&#x3D;&quot;taxi&quot;&gt;
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;From&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;from&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;To&lt;/mat-label&gt;
+            &lt;input matInput formControlName&#x3D;&quot;to&quot; /&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Time and Date&lt;/mat-label&gt;
+            &lt;input
+              matInput
+              [matDatepicker]&#x3D;&quot;taxiPicker&quot;
+              formControlName&#x3D;&quot;timeAndDate&quot;
+            /&gt;
+            &lt;mat-datepicker-toggle
+              matSuffix
+              [for]&#x3D;&quot;taxiPicker&quot;
+            &gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker #taxiPicker&gt;&lt;/mat-datepicker&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field&gt;
+            &lt;mat-label&gt;Total Price&lt;/mat-label&gt;
+            &lt;input matInput type&#x3D;&quot;number&quot; formControlName&#x3D;&quot;totalPrice&quot; /&gt;
+          &lt;/mat-form-field&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;section&quot;&gt;
+      &lt;hr class&#x3D;&quot;mb-5&quot; /&gt;
+      &lt;mat-form-field style&#x3D;&quot;width: 100%&quot;&gt;
+        &lt;mat-label&gt;Comment&lt;/mat-label&gt;
+        &lt;textarea
+          matInput
+          cdkTextareaAutosize
+          placeholder&#x3D;&quot;Leave a comment&quot;
+          formControlName&#x3D;&quot;comment&quot;
+        &gt;&lt;/textarea&gt;
+      &lt;/mat-form-field&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;section&quot; class&#x3D;&quot;mt-6&quot;&gt;
+      &lt;button mat-raised-button color&#x3D;&quot;secondary&quot; (click)&#x3D;&quot;onBack()&quot;&gt;
+        Back
+      &lt;/button&gt;
+      &lt;div class&#x3D;&quot;pull-right mb-3&quot;&gt;
+        @if (
+          (isEndUser &amp;&amp; !isTripApproved &amp;&amp; !isTripSentForApproval) || isFinancer
+        ) {
+          &lt;button
+            mat-raised-button
+            color&#x3D;&quot;secondary&quot;
+            type&#x3D;&quot;submit&quot;
+            class&#x3D;&quot;mr-3&quot;
+            [disabled]&#x3D;&quot;tripForm.invalid&quot;
+          &gt;
+            Save
+          &lt;/button&gt;
+        }
+        @if (isEndUser &amp;&amp; isDraft &amp;&amp; tripId) {
+          &lt;button
+            mat-raised-button
+            color&#x3D;&quot;primary&quot;
+            type&#x3D;&quot;button&quot;
+            [disabled]&#x3D;&quot;tripForm.invalid&quot;
+            (click)&#x3D;&quot;onSendForApproval()&quot;
+          &gt;
+            Send to Approver
+          &lt;/button&gt;
+        }
+        @if (isApprover &amp;&amp; !isTripApproved &amp;&amp; tripId) {
+          &lt;button
+            mat-raised-button
+            color&#x3D;&quot;primary&quot;
+            type&#x3D;&quot;button&quot;
+            [disabled]&#x3D;&quot;tripForm.invalid&quot;
+            (click)&#x3D;&quot;onApproveTrip()&quot;
+          &gt;
+            Approve
+          &lt;/button&gt;
+        }
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <form [formGroup]="tripForm" (ngSubmit)="onSubmit()">    <!-- General Trip Information -->    <div class="section">      <h2>Trip Details</h2>      <mat-form-field>        <mat-label>Trip Name</mat-label>        <input matInput formControlName="name" />      </mat-form-field>      <mat-form-field>        <mat-label>Duration</mat-label>        <input matInput formControlName="duration" />      </mat-form-field>      <mat-form-field>        <mat-label>Start Date</mat-label>        <input          matInput          [matDatepicker]="startDatePicker"          formControlName="startDate"        />        <mat-datepicker-toggle          matSuffix          [for]="startDatePicker"        ></mat-datepicker-toggle>        <mat-datepicker #startDatePicker></mat-datepicker>      </mat-form-field>      <mat-form-field>        <mat-label>End Date</mat-label>        <input          matInput          [matDatepicker]="endDatePicker"          formControlName="endDate"        />        <mat-datepicker-toggle          matSuffix          [for]="endDatePicker"        ></mat-datepicker-toggle>        <mat-datepicker #endDatePicker></mat-datepicker>      </mat-form-field>      <mat-form-field>        <mat-label>Status</mat-label>        <mat-select formControlName="status">          <mat-option value="draft">Draft</mat-option>          <mat-option value="pending-approval">Pending Approval</mat-option>          <mat-option value="approved">Approved</mat-option>          <mat-option value="canceled">Canceled</mat-option>        </mat-select>      </mat-form-field>      <mat-form-field>        <mat-label>Total Expense</mat-label>        <input matInput type="number" formControlName="totalExpense" />      </mat-form-field>    </div>    <mat-form-field>      <mat-label>Finance Status</mat-label>      <mat-select formControlName="financeStatus">        <mat-option value="refunded">Refunded</mat-option>        <mat-option value="in-process">In Process</mat-option>      </mat-select>    </mat-form-field>    <div formGroupName="expenses">      <!-- Car Rental Section -->      <div class="section">        <h2>Car Rental</h2>        <div formGroupName="carRental">          <mat-form-field>            <mat-label>Car Name</mat-label>            <input matInput formControlName="carName" />          </mat-form-field>          <mat-form-field>            <mat-label>Pick-Up Date</mat-label>            <input              matInput              [matDatepicker]="pickUpPicker"              formControlName="pickUpDate"            />            <mat-datepicker-toggle              matSuffix              [for]="pickUpPicker"            ></mat-datepicker-toggle>            <mat-datepicker #pickUpPicker></mat-datepicker>          </mat-form-field>          <mat-form-field>            <mat-label>Drop-Off Date</mat-label>            <input              matInput              [matDatepicker]="dropOffPicker"              formControlName="dropOffDate"            />            <mat-datepicker-toggle              matSuffix              [for]="dropOffPicker"            ></mat-datepicker-toggle>            <mat-datepicker #dropOffPicker></mat-datepicker>          </mat-form-field>          <mat-form-field>            <mat-label>Pick-Up Location</mat-label>            <input matInput formControlName="pickUpLocation" />          </mat-form-field>          <mat-form-field>            <mat-label>Drop-Off Location</mat-label>            <input matInput formControlName="dropOffLocation" />          </mat-form-field>          <mat-form-field>            <mat-label>Total Price</mat-label>            <input matInput type="number" formControlName="totalPrice" />          </mat-form-field>        </div>      </div>      <!-- Hotel Section -->      <div class="section">        <h2>Hotel</h2>        <div formGroupName="hotel">          <mat-form-field>            <mat-label>Hotel Name</mat-label>            <input matInput formControlName="hotelName" />          </mat-form-field>          <mat-form-field>            <mat-label>Location</mat-label>            <input matInput formControlName="location" />          </mat-form-field>          <mat-form-field>            <mat-label>Check-In Date</mat-label>            <input              matInput              [matDatepicker]="checkInPicker"              formControlName="checkInDate"            />            <mat-datepicker-toggle              matSuffix              [for]="checkInPicker"            ></mat-datepicker-toggle>            <mat-datepicker #checkInPicker></mat-datepicker>          </mat-form-field>          <mat-form-field>            <mat-label>Check-Out Date</mat-label>            <input              matInput              [matDatepicker]="checkOutPicker"              formControlName="checkOutDate"            />            <mat-datepicker-toggle              matSuffix              [for]="checkOutPicker"            ></mat-datepicker-toggle>            <mat-datepicker #checkOutPicker></mat-datepicker>          </mat-form-field>          <mat-form-field>            <mat-label>Total Price</mat-label>            <input matInput type="number" formControlName="totalPrice" />          </mat-form-field>        </div>      </div>      <!-- Flight Section -->      <div class="section">        <h2>Flight</h2>        <div formGroupName="flight">          <mat-form-field>            <mat-label>Airline</mat-label>            <input matInput formControlName="airline" />          </mat-form-field>          <mat-form-field>            <mat-label>From</mat-label>            <input matInput formControlName="from" />          </mat-form-field>          <mat-form-field>            <mat-label>To</mat-label>            <input matInput formControlName="to" />          </mat-form-field>          <mat-form-field>            <mat-label>Departure Date</mat-label>            <input              matInput              [matDatepicker]="departurePicker"              formControlName="departureDate"            />            <mat-datepicker-toggle              matSuffix              [for]="departurePicker"            ></mat-datepicker-toggle>            <mat-datepicker #departurePicker></mat-datepicker>          </mat-form-field>          <mat-form-field>            <mat-label>Arrival Date</mat-label>            <input              matInput              [matDatepicker]="arrivalPicker"              formControlName="arrivalDate"            />            <mat-datepicker-toggle              matSuffix              [for]="arrivalPicker"            ></mat-datepicker-toggle>            <mat-datepicker #arrivalPicker></mat-datepicker>          </mat-form-field>          <mat-form-field>            <mat-label>Total Price</mat-label>            <input matInput type="number" formControlName="totalPrice" />          </mat-form-field>        </div>      </div>      <!-- Taxi Section -->      <div class="section">        <h2>Taxi</h2>        <div formGroupName="taxi">          <mat-form-field>            <mat-label>From</mat-label>            <input matInput formControlName="from" />          </mat-form-field>          <mat-form-field>            <mat-label>To</mat-label>            <input matInput formControlName="to" />          </mat-form-field>          <mat-form-field>            <mat-label>Time and Date</mat-label>            <input              matInput              [matDatepicker]="taxiPicker"              formControlName="timeAndDate"            />            <mat-datepicker-toggle              matSuffix              [for]="taxiPicker"            ></mat-datepicker-toggle>            <mat-datepicker #taxiPicker></mat-datepicker>          </mat-form-field>          <mat-form-field>            <mat-label>Total Price</mat-label>            <input matInput type="number" formControlName="totalPrice" />          </mat-form-field>        </div>      </div>    </div>    <div class="section">      <hr class="mb-5" />      <mat-form-field style="width: 100%">        <mat-label>Comment</mat-label>        <textarea          matInput          cdkTextareaAutosize          placeholder="Leave a comment"          formControlName="comment"        ></textarea>      </mat-form-field>    </div>    <div class="section" class="mt-6">      <button mat-raised-button color="secondary" (click)="onBack()">        Back      </button>      <div class="pull-right mb-3">        @if (          (isEndUser && !isTripApproved && !isTripSentForApproval) || isFinancer        ) {          <button            mat-raised-button            color="secondary"            type="submit"            class="mr-3"            [disabled]="tripForm.invalid"          >            Save          </button>        }        @if (isEndUser && isDraft && tripId) {          <button            mat-raised-button            color="primary"            type="button"            [disabled]="tripForm.invalid"            (click)="onSendForApproval()"          >            Send to Approver          </button>        }        @if (isApprover && !isTripApproved && tripId) {          <button            mat-raised-button            color="primary"            type="button"            [disabled]="tripForm.invalid"            (click)="onApproveTrip()"          >            Approve          </button>        }      </div>    </div>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LayoutComponent', 'selector': 'app-layout'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'SidenavComponent', 'selector': 'app-sidenav'},{'name': 'ToasterComponent', 'selector': 'app-toaster'},{'name': 'TripDetailComponent', 'selector': 'app-trip-detail'},{'name': 'TripListComponent', 'selector': 'app-trip-list'}];
+    var DIRECTIVES = [{'name': 'TogglePasswordDirective', 'selector': '[appTogglePassword]'}];
+    var ACTUAL_COMPONENT = {'name': 'TripDetailComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TripDetailComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
