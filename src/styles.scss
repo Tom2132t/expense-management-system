@@ -26,3 +26,9 @@ body {
   background-color: green($color: #000000) !important;
   color: white;
 }
+
+.alert-error {
+  font-weight: 500;
+  background-color: red($color: #000000) !important;
+  color: white;
+}

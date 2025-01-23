@@ -47,7 +47,7 @@ export class AuthService {
           if (user) {
             this._setUserSession(user);
           } else {
-            this._toasterService.showToast('info', 'Wrong Details');
+            this._toasterService.showToast('error', 'Wrong Details');
           }
         })
       );

@@ -53,18 +53,18 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Finance Status</mat-label>
-        <mat-select formControlName="financeStatus">
-          <mat-option value="refunded">Refunded</mat-option>
-          <mat-option value="in-process">In Process</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
         <mat-label>Total Expense</mat-label>
         <input matInput type="number" formControlName="totalExpense" />
       </mat-form-field>
     </div>
+
+    <mat-form-field>
+      <mat-label>Finance Status</mat-label>
+      <mat-select formControlName="financeStatus">
+        <mat-option value="refunded">Refunded</mat-option>
+        <mat-option value="in-process">In Process</mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <div formGroupName="expenses">
       <!-- Car Rental Section -->
@@ -278,7 +278,9 @@
         Back
       </button>
       <div class="pull-right mb-3">
-        @if (isEndUser || isFinancer) {
+        @if (
+          (isEndUser && !isTripApproved && !isTripSentForApproval) || isFinancer
+        ) {
           <button
             mat-raised-button
             color="secondary"
