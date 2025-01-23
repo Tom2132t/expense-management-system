@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>User Information</h2>
+  <form [formGroup]="userForm">
+    <!-- Username -->
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input formControlName="user" matInput />
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput type="email" />
+    </mat-form-field>
+
+    <!-- Roles -->
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role" multiple>
+        <mat-option value="end-user">End User</mat-option>
+        <mat-option value="approver">Approver</mat-option>
+        <mat-option value="finance">Financier</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>

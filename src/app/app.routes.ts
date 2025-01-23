@@ -21,12 +21,18 @@ export const routes: Routes = [
         data: { roles: [Role.FINANCE, Role.APPROVER, Role.END_USER] }
       },
       {
+        path: 'profile',
+        loadChildren: () =>
+          import('../app/features/profile/profile.routes').then((m) => m.ROUTES),
+        data: { roles: [Role.FINANCE, Role.APPROVER, Role.END_USER] }
+      },
+      {
         path: 'dashboard',
         loadChildren: () =>
           import('../app/features/dashboard/dashboard.routes').then(
             (m) => m.ROUTES
           ),
-        data: { roles: [Role.FINANCE, Role.APPROVER] }
+        data: { roles: [Role.FINANCE] }
       }
     ]
   },
