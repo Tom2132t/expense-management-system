@@ -124,14 +124,18 @@ export class TripDetailComponent implements OnInit {
             ) {
               this.tripForm.disable();
             }
-            if (state.status === TripStatus.PENDING_APPROVAL) {
+            if (
+              state.status === TripStatus.PENDING_APPROVAL &&
+              this.isApprover
+            ) {
               this.tripForm.get('comment')?.enable();
               this.tripForm.get('comment')?.addValidators(Validators.required);
             }
             if (this.isFinancer && state.status === TripStatus.APPROVED) {
               this.tripForm.get('financeStatus')?.enable();
-              this.tripForm.get('financeStatus')?.addValidators(Validators.required);
-              
+              this.tripForm
+                .get('financeStatus')
+                ?.addValidators(Validators.required);
             }
           })
         )
@@ -167,7 +171,7 @@ export class TripDetailComponent implements OnInit {
 
   onSendForApproval(): void {
     const updatedTrip = {
-      ...this.tripForm.value,
+      ...this.tripForm.getRawValue(),
       status: TripStatus.PENDING_APPROVAL
     };
 
