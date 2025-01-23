@@ -57,6 +57,7 @@ export class TripDetailComponent implements OnInit {
   isEndUser = this._authService.user?.role === Role.END_USER;
   isTripSentForApproval: boolean = false;
   isTripApproved: boolean = false;
+  isDraft: boolean = false;
 
   tripForm: FormGroup = this._fb.group({
     name: ['', [Validators.required]],
@@ -117,6 +118,7 @@ export class TripDetailComponent implements OnInit {
             this.isTripSentForApproval =
               state.status === TripStatus.PENDING_APPROVAL;
             this.isTripApproved = state.status === TripStatus.APPROVED;
+            this.isDraft = state.status === TripStatus.DRAFT;
 
             if (
               (state.id && state.status === TripStatus.APPROVED) ||
@@ -186,6 +188,7 @@ export class TripDetailComponent implements OnInit {
 
     this.tripForm.disable();
     this.isTripSentForApproval = true;
+    this.isDraft = false;
     this._toasterService.showToast(
       'success',
       'Trip sent for approval successfully'

@@ -260,25 +260,25 @@
       </div>
     </div>
 
-      <div class="section">
-        <hr class="mb-5" />
-        <mat-form-field style="width: 100%">
-          <mat-label>Comment</mat-label>
-          <textarea
-            matInput
-            cdkTextareaAutosize
-            placeholder="Leave a comment"
-            formControlName="comment"
-          ></textarea>
-        </mat-form-field>
-      </div>
+    <div class="section">
+      <hr class="mb-5" />
+      <mat-form-field style="width: 100%">
+        <mat-label>Comment</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          placeholder="Leave a comment"
+          formControlName="comment"
+        ></textarea>
+      </mat-form-field>
+    </div>
 
     <div class="section" class="mt-6">
       <button mat-raised-button color="secondary" (click)="onBack()">
         Back
       </button>
       <div class="pull-right mb-3">
-        @if (isEndUser || isFinancer && !isTripSentForApproval) {
+        @if ((isEndUser && isDraft) || isFinancer) {
           <button
             mat-raised-button
             color="secondary"
@@ -289,7 +289,7 @@
             Save
           </button>
         }
-        @if (isEndUser && !isTripSentForApproval && tripId) {
+        @if (isEndUser && isDraft && tripId) {
           <button
             mat-raised-button
             color="primary"
