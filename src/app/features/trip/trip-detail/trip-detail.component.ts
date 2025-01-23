@@ -149,7 +149,6 @@ export class TripDetailComponent implements OnInit {
     }
 
     const tripData = this.tripForm.getRawValue();
-    tripData.startDate = new Date(tripData.startDate);
 
     const payload = {
       ...tripData,
@@ -170,13 +169,15 @@ export class TripDetailComponent implements OnInit {
   }
 
   onSendForApproval(): void {
-    const updatedTrip = {
-      ...this.tripForm.getRawValue(),
+    const tripData = this.tripForm.getRawValue();
+    const payload = {
+      ...tripData,
+      totalExpense: this._calculateTotalExpense(tripData),
       status: TripStatus.PENDING_APPROVAL
     };
 
     this._store.dispatch(
-      TripActions.updateTrip({ id: this.tripId, trip: updatedTrip })
+      TripActions.updateTrip({ id: this.tripId, trip: payload })
     );
 
     this.tripForm.patchValue({
