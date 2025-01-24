@@ -47,11 +47,11 @@ The **Expense Management System** is a demo application built with Angular to si
 
 ## Technologies Used
 
-- **Frontend**: Angular, Angular Material, Tailwind CSS, DaisyUI
+- **Frontend**: Angular, Angular Material, Tailwind CSS, DaisyUI, BroadChannel
 - **State Management**: NgRx (Store, Effects, Entity, Router Store, DevTools)
 - **Mock Backend**: JSON-server
 - **Documentation**: Combodoc
-- **Linting & Formatting**: ESLint, Prettier, Husky
+- **Linting & Formatting**: ESLint, Prettier, Husky, Lint Staged
 - **Testing**: Karma, Jasmine
 
 ---
