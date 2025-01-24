@@ -80,14 +80,14 @@ export class TripDetailComponent implements OnInit {
         dropOffDate: [''],
         pickUpLocation: [''],
         dropOffLocation: [''],
-        totalPrice: [0]
+        totalPrice: [0, [Validators.required]]
       }),
       hotel: this._fb.group({
         hotelName: [''],
         location: [''],
         checkInDate: [''],
         checkOutDate: [''],
-        totalPrice: [0]
+        totalPrice: [0, [Validators.required]]
       }),
       flight: this._fb.group({
         airline: [''],
@@ -95,13 +95,13 @@ export class TripDetailComponent implements OnInit {
         to: [''],
         departureDate: [''],
         arrivalDate: [''],
-        totalPrice: [0]
+        totalPrice: [0, [Validators.required]]
       }),
       taxi: this._fb.group({
         from: [''],
         to: [''],
         timeAndDate: [''],
-        totalPrice: [0]
+        totalPrice: [0, [Validators.required]]
       })
     })
   });
