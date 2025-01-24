@@ -60,9 +60,9 @@ export class TripDetailComponent implements OnInit {
   isApprover = this._authService.user?.role === Role.APPROVER;
   isFinancer = this._authService.user?.role === Role.FINANCE;
   isEndUser = this._authService.user?.role === Role.END_USER;
-  isTripSentForApproval: boolean = false;
-  isTripApproved: boolean = false;
-  isDraft: boolean = false;
+  isTripSentForApproval = false;
+  isTripApproved = false;
+  isDraft = false;
 
   tripForm: FormGroup = this._fb.group({
     name: ['', [Validators.required]],

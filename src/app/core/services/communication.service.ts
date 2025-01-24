@@ -12,7 +12,7 @@ export enum CommunicationActions {
 
 interface BroadcastMessage {
   action: CommunicationActions;
-  payload?: any;
+  payload?: unknown;
 }
 
 @Injectable({
@@ -43,7 +43,7 @@ export class CommunicationService implements OnDestroy {
    * @param action The action to perform (e.g., logout, reloadTrips).
    * @param payload Optional data associated with the action.
    */
-  sendMessage(action: CommunicationActions, payload?: any): void {
+  sendMessage(action: CommunicationActions, payload?: unknown): void {
     if (!action) {
       console.error('sendMessage: action is required');
       return;
